@@ -1,6 +1,9 @@
+import {
+  UserLoggedInEvent,
+  UserRehydratedEvent,
+} from '@autronas/backend/events';
 import { AggregateRoot } from '@nestjs/cqrs';
 import { ApiProperty } from '@nestjs/swagger';
-import { UserLoggedInEvent, UserRehydratedEvent } from '@sleep-valley/backend/events';
 import { Exclude } from 'class-transformer';
 
 class UserPermissions {

@@ -1,6 +1,6 @@
+import { UserEntity } from '@autronas/backend/entities';
 import { JwtService } from '@nestjs/jwt';
 import { Test } from '@nestjs/testing';
-import { UserEntity } from '@sleep-valley/backend/entities';
 import { AuthService } from './auth.service';
 
 const SIGNED_JWT_RESULT = 'signed';
@@ -64,7 +64,10 @@ describe('AuthService', () => {
     });
 
     it('should return the correct values', async () => {
-      const user = new UserEntity({ id: '2c2b2f2e-2d2c-2b2a-2f2e-2d2c2b2a2f2e' }, {});
+      const user = new UserEntity(
+        { id: '2c2b2f2e-2d2c-2b2a-2f2e-2d2c2b2a2f2e' },
+        {},
+      );
       const sign = service.sign(user);
 
       const decode = service.decode(sign);
@@ -87,7 +90,10 @@ describe('AuthService', () => {
     });
 
     it('should call the jwtService sign function with the correct values', async () => {
-      const user = new UserEntity({ id: '2c2b2f2e-2d2c-2b2a-2f2e-2d2c2b2a2f2e' }, {});
+      const user = new UserEntity(
+        { id: '2c2b2f2e-2d2c-2b2a-2f2e-2d2c2b2a2f2e' },
+        {},
+      );
       const sign = service.sign(user);
 
       expect(jwtService.sign).toHaveBeenCalled();

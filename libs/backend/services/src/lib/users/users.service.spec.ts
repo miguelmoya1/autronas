@@ -1,7 +1,7 @@
+import { UserModel } from '@autronas/backend/database';
 import { ConfigService } from '@nestjs/config';
 import { getModelToken } from '@nestjs/sequelize';
 import { Test, TestingModule } from '@nestjs/testing';
-import { UserModel } from '@sleep-valley/backend/database';
 import { UsersService } from './users.service';
 
 describe('UsersService', () => {

@@ -1,3 +1,13 @@
 {
-  "cSpell.words": ["autronas", "commitlint", "devkit", "sidenav"]
+  "cSpell.words": [
+    "autronas",
+    "commitlint",
+    "Cqrs",
+    "customfav",
+    "devkit",
+    "Fastify",
+    "sidenav",
+    "topbar",
+    "websockets"
+  ]
 }

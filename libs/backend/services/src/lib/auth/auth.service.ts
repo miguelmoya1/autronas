@@ -1,6 +1,6 @@
+import { User } from '@autronas/core/interfaces';
 import { HttpException, HttpStatus, Injectable, Logger } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
-import { User } from '@sleep-valley/core/interfaces';
 import { OAuth2Client } from 'google-auth-library';
 
 @Injectable()

@@ -1,6 +1,6 @@
+import { AuthService } from '@autronas/backend/services';
 import { Logger } from '@nestjs/common';
 import { IQueryHandler, QueryHandler } from '@nestjs/cqrs';
-import { AuthService } from '@sleep-valley/backend/services';
 import { AuthRehydrateQuery } from '../impl/auth-rehydrate.query';
 
 @QueryHandler(AuthRehydrateQuery)

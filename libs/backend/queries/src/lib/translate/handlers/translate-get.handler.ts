@@ -1,6 +1,6 @@
+import { TranslateService } from '@autronas/backend/services';
 import { Logger } from '@nestjs/common';
 import { IQueryHandler, QueryHandler } from '@nestjs/cqrs';
-import { TranslateService } from '@sleep-valley/backend/services';
 import { TranslateGetQuery } from '../impl/translate-get.query';
 
 @QueryHandler(TranslateGetQuery)

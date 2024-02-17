@@ -1,10 +1,10 @@
+import { UserEntity } from '@autronas/backend/entities';
+import { AuthService } from '@autronas/backend/services';
 import { Test, TestingModule } from '@nestjs/testing';
-import { UserEntity } from '@sleep-valley/backend/entities';
-import { AuthService } from '@sleep-valley/backend/services';
 import { AuthRehydrateQuery } from '../impl/auth-rehydrate.query';
 import { AuthRehydrateHandler } from './auth-rehydrate.handler';
 
-jest.mock('@sleep-valley/backend/services');
+jest.mock('@autronas/backend/services');
 
 describe('AuthRehydrateHandler', () => {
   let handler: AuthRehydrateHandler;

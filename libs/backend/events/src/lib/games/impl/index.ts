@@ -1,9 +1,0 @@
-export { GameCharactersCreatedEvent } from './game-characters-created.event';
-export { GameCodeCreatedEvent } from './game-code-created.event';
-export { GameCreatedEvent } from './game-created.event';
-export { GameDeclinedEvent } from './game-declined.event';
-export { GameFinishedEvent } from './game-finished.event';
-export { GameJoinedEvent } from './game-joined.event';
-export { GamePhaseChangedEvent } from './game-phase-changed.event';
-export { GameStartedEvent } from './game-started.event';
-export { GameUserRequestedEvent } from './game-user-requested.event';

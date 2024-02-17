@@ -1,7 +1,13 @@
+import { Events } from '@autronas/core/enums';
+import { ShouldRefresh } from '@autronas/core/interfaces';
 import { HttpException, HttpStatus, Logger } from '@nestjs/common';
-import { ConnectedSocket, MessageBody, SubscribeMessage, WebSocketGateway, WebSocketServer } from '@nestjs/websockets';
-import { Events } from '@sleep-valley/core/enums';
-import { ShouldRefresh } from '@sleep-valley/core/interfaces';
+import {
+  ConnectedSocket,
+  MessageBody,
+  SubscribeMessage,
+  WebSocketGateway,
+  WebSocketServer,
+} from '@nestjs/websockets';
 import { of } from 'rxjs';
 import { Server, Socket } from 'socket.io';
 
@@ -55,7 +61,9 @@ export class GameGateway {
   }
 
   async sendToRoom(gameID: string, data: ShouldRefresh) {
-    this.logger.verbose(`sending to game socket ${gameID}: event ${Events.GAME}`);
+    this.logger.verbose(
+      `sending to game socket ${gameID}: event ${Events.GAME}`,
+    );
 
     this.server.to(gameID).emit(Events.GAME, data);
   }

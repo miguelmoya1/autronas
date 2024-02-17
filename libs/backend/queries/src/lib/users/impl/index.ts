@@ -1,1 +1,1 @@
-export { UserGetInGameQuery } from './user-get-in-game.query';
+export { UserGetLoggedQuery } from './user-get-logged.query';

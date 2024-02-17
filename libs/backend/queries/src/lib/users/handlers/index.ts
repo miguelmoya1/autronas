@@ -1,3 +1,3 @@
-import { UserGetInGameHandler } from './user-get-in-game.handler';
+import { UserGetLoggedHandler } from './user-get-logged.handler';
 
-export const UserQueryHandlers = [UserGetInGameHandler];
+export const UserQueryHandlers = [UserGetLoggedHandler];

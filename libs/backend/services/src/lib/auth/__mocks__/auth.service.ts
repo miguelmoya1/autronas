@@ -1,4 +1,4 @@
-import { User } from '@sleep-valley/core/interfaces';
+import { User } from '@autronas/core/interfaces';
 
 export class AuthService {
   public decode = jest.fn((token: string) => ({ id: token }));

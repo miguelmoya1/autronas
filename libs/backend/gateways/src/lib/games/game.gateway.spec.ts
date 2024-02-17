@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { GameGateway } from './game.gateway';
 
-jest.mock('@sleep-valley/backend/services');
+jest.mock('@autronas/backend/services');
 
 describe('GameGatewayGateway', () => {
   let gateway: GameGateway;

@@ -1,5 +1,5 @@
+import { UserEntity } from '@autronas/backend/entities';
 import { Test, TestingModule } from '@nestjs/testing';
-import { UserEntity } from '@sleep-valley/backend/entities';
 import { AuthRehydrateQuery } from '../impl/auth-rehydrate.query';
 import { AuthIsLoggedHandler } from './auth-is-logged.handler';
 

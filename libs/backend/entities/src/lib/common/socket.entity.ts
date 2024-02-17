@@ -1,5 +1,5 @@
+import { ShouldRefresh } from '@autronas/core/interfaces';
 import { ApiProperty } from '@nestjs/swagger';
-import { ShouldRefresh } from '@sleep-valley/core/interfaces';
 
 export class SocketResponse {
   @ApiProperty()

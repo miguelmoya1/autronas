@@ -1,5 +1,5 @@
+import { GoogleLogin } from '@autronas/core/interfaces';
 import { ApiProperty } from '@nestjs/swagger';
-import { GoogleLogin } from '@sleep-valley/core/interfaces';
 import { IsEmail, IsNotEmpty, IsString, IsUrl } from 'class-validator';
 
 export class GoogleLoginEntity implements GoogleLogin {
