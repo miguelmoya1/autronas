@@ -1,0 +1,23 @@
+<mat-drawer [opened]="true" mode="side">
+  <div class="drawer__container">
+    <div class="drawer__menu">
+      <div class="drawer__nav_container" routerLink="/">
+        <button mat-icon-button>
+          <mat-icon aria-hidden="false" aria-label="Home" fontIcon="home" />
+        </button>
+        {{ 'HOME' | translate }}
+      </div>
+    </div>
+
+    <div class="drawer__nav_container" routerLink="/">
+      <button mat-icon-button>
+        <mat-icon
+          aria-hidden="false"
+          aria-label="Exit"
+          fontIcon="exit_to_app"
+        />
+      </button>
+      {{ 'LOGOUT' | translate }}
+    </div>
+  </div>
+</mat-drawer>

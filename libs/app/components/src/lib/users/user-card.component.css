@@ -1,0 +1,14 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: var(--sv-sys-spacing);
+
+  .image-rounded {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    border: 1px solid var(--sv-sys-color-gray-300);
+  }
+}

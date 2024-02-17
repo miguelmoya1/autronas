@@ -14,7 +14,36 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@autronas/app/actions": ["libs/app/actions/src/index.ts"],
+      "@autronas/app/components": ["libs/app/components/src/index.ts"],
+      "@autronas/app/guards": ["libs/app/guards/src/index.ts"],
+      "@autronas/app/helpers": ["libs/app/helpers/src/index.ts"],
+      "@autronas/app/interceptors": ["libs/app/interceptors/src/index.ts"],
+      "@autronas/app/pipes": ["libs/app/pipes/src/index.ts"],
+      "@autronas/app/resolvers": ["libs/app/resolvers/src/index.ts"],
+      "@autronas/app/services": ["libs/app/services/src/index.ts"],
+      "@autronas/app/shared": ["libs/app/shared/src/index.ts"],
+      "@autronas/app/store": ["libs/app/store/src/index.ts"],
+      "@autronas/app/ui": ["libs/app/ui/src/index.ts"],
+      "@autronas/app/views": ["libs/app/views/src/index.ts"],
+      "@autronas/backend/commands": ["libs/backend/commands/src/index.ts"],
+      "@autronas/backend/database": ["libs/backend/database/src/index.ts"],
+      "@autronas/backend/decorators": ["libs/backend/decorators/src/index.ts"],
+      "@autronas/backend/dto": ["libs/backend/dto/src/index.ts"],
+      "@autronas/backend/entities": ["libs/backend/entities/src/index.ts"],
+      "@autronas/backend/events": ["libs/backend/events/src/index.ts"],
+      "@autronas/backend/gateways": ["libs/backend/gateways/src/index.ts"],
+      "@autronas/backend/guards": ["libs/backend/guards/src/index.ts"],
+      "@autronas/backend/migrations": ["libs/backend/migrations/src/index.ts"],
+      "@autronas/backend/queries": ["libs/backend/queries/src/index.ts"],
+      "@autronas/backend/sagas": ["libs/backend/sagas/src/index.ts"],
+      "@autronas/backend/services": ["libs/backend/services/src/index.ts"],
+      "@autronas/backend/shared": ["libs/backend/shared/src/index.ts"],
+      "@autronas/backend/testing": ["libs/backend/testing/src/index.ts"],
+      "@autronas/core/enums": ["libs/core/enums/src/index.ts"],
+      "@autronas/core/interfaces": ["libs/core/interfaces/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
