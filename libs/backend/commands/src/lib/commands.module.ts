@@ -1,8 +1,7 @@
 import { Global, Module } from '@nestjs/common';
+import { AuthCommandHandlers } from './auth/handlers';
 
-const providers = [
-  // AuthCommandHandlers ?? [],
-].flat();
+const providers = [AuthCommandHandlers ?? []].flat();
 
 @Global()
 @Module({

@@ -1,5 +1,5 @@
 import { Injectable, Injector, effect, inject, untracked } from '@angular/core';
-import { STORE_KEYS, StoreService } from '@sleep-valley/app/store';
+import { STORE_KEYS, StoreService } from '@autronas/app/store';
 import { Socket } from 'ngx-socket-io';
 
 @Injectable({

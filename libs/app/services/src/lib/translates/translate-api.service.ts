@@ -1,6 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
-import { ApiErrorResponse, ApiOkResponse, DataFromApi } from '@sleep-valley/app/shared';
+import {
+  ApiErrorResponse,
+  ApiOkResponse,
+  DataFromApi,
+} from '@autronas/app/shared';
 import { catchError, firstValueFrom, map, of } from 'rxjs';
 
 type Translate = { [key: string]: string };

@@ -1,6 +1,6 @@
 import { Injectable, inject } from '@angular/core';
-import { Events } from '@sleep-valley/core/enums';
-import { ShouldRefresh } from '@sleep-valley/core/interfaces';
+import { Events } from '@autronas/core/enums';
+import { ShouldRefresh } from '@autronas/core/interfaces';
 import { Socket } from 'ngx-socket-io';
 import { Subject, Subscription } from 'rxjs';
 
@@ -21,11 +21,13 @@ export class UserSocketService {
   private subscribeToGameUpdates() {
     this.unsubscribeFromGameUpdates();
 
-    this._subscription = this._socket.fromEvent<ShouldRefresh>(Events.GAME).subscribe((response) => {
-      if (response.users) {
-        this._userUpdated.next();
-      }
-    });
+    this._subscription = this._socket
+      .fromEvent<ShouldRefresh>(Events.GAME)
+      .subscribe((response) => {
+        if (response.user) {
+          this._userUpdated.next();
+        }
+      });
   }
 
   private unsubscribeFromGameUpdates() {

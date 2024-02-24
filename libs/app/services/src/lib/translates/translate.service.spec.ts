@@ -1,10 +1,10 @@
 import { TestBed } from '@angular/core/testing';
-import { StoreService } from '@sleep-valley/app/store';
+import { StoreService } from '@autronas/app/store';
 import { TranslateApiService } from './translate-api.service';
 import { TranslateService } from './translate.service';
 
 jest.mock('./translate-api.service');
-jest.mock('@sleep-valley/app/store');
+jest.mock('@autronas/app/store');
 
 describe('TranslateService', () => {
   let service: TranslateService;

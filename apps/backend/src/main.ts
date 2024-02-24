@@ -34,8 +34,8 @@ import { AppModule } from './app/app.module';
 
 function setupSwagger(app: NestFastifyApplication) {
   const config = new DocumentBuilder()
-    .setTitle('Sleep Valley API')
-    .setDescription('All the documentation for the Sleep Valley API endpoints')
+    .setTitle('Autronas API')
+    .setDescription('All the documentation for the Autronas API endpoints')
     .setVersion('1.0')
     .addBearerAuth()
     .build();
@@ -43,7 +43,7 @@ function setupSwagger(app: NestFastifyApplication) {
   const document = SwaggerModule.createDocument(app, config);
 
   SwaggerModule.setup('docs', app, document, {
-    customSiteTitle: 'Sleep Valley API',
+    customSiteTitle: 'Autronas API',
     customfavIcon: '/favicon.ico',
     customCss: '.swagger-ui .topbar { display: none }',
   });

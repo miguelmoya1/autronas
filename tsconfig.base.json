@@ -25,7 +25,6 @@
       "@autronas/app/services": ["libs/app/services/src/index.ts"],
       "@autronas/app/shared": ["libs/app/shared/src/index.ts"],
       "@autronas/app/store": ["libs/app/store/src/index.ts"],
-      "@autronas/app/ui": ["libs/app/ui/src/index.ts"],
       "@autronas/app/views": ["libs/app/views/src/index.ts"],
       "@autronas/backend/commands": ["libs/backend/commands/src/index.ts"],
       "@autronas/backend/database": ["libs/backend/database/src/index.ts"],

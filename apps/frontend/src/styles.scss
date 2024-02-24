@@ -19,23 +19,28 @@ $m3-light-theme: matx.define-theme(
     ),
   )
 );
-
-.light-theme {
-  @include mat.all-component-themes($m3-light-theme);
-}
-
-.dark-theme {
-  @include mat.all-component-themes($m3-dark-theme);
-}
 /* You can add global styles to this file, and also import other style files */
 
 html,
 body {
   height: 100%;
-
-  background-color: var(--mat-app-background-color);
 }
 
 body {
   margin: 0;
+}
+
+html {
+  @include mat.all-component-themes($m3-light-theme);
+
+  --mat-sidenav-closed-width: 68px;
+  --mat-sidenav-opened-width: 264px;
+}
+
+.dark-theme {
+  @include mat.all-component-colors($m3-dark-theme);
+}
+
+body.dark-theme {
+  background: #121212;
 }

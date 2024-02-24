@@ -1,11 +1,11 @@
 import { HttpClientModule } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
-import { StoreService } from '@sleep-valley/app/store';
+import { StoreService } from '@autronas/app/store';
 import { Socket } from 'ngx-socket-io';
 import { AuthSocketService } from './auth-socket.service';
 import { AuthService } from './auth.service';
 
-jest.mock('@sleep-valley/app/store');
+jest.mock('@autronas/app/store');
 
 describe('AuthSocketService', () => {
   let service: AuthSocketService;

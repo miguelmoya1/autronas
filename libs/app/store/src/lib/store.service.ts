@@ -22,7 +22,7 @@ export class StoreService {
       throw new Error(`No signal found for key: ${key}`);
     }
 
-    return signal as unknown as Signal<Store[T]>;
+    return signal.asReadonly() as Signal<Store[T]>;
   }
 
   public set<T extends keyof Store>(key: T, value: Store[T]) {
@@ -45,6 +45,5 @@ export class StoreService {
 
     this._store.set(STORE_KEYS.IS_LOGGED, signal(false));
     this._store.set(STORE_KEYS.SOCKET_CONNECTED, signal(false));
-    this._store.set(STORE_KEYS.SOCKET_GAME_CONNECTED, signal(false));
   }
 }

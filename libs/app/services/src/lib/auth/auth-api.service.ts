@@ -1,7 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
-import { ApiErrorResponse, ApiOkResponse, DataFromApi } from '@sleep-valley/app/shared';
-import { GoogleLogin, LoginResponse } from '@sleep-valley/core/interfaces';
+import {
+  ApiErrorResponse,
+  ApiOkResponse,
+  DataFromApi,
+} from '@autronas/app/shared';
+import { GoogleLogin, LoginResponse } from '@autronas/core/interfaces';
 import { catchError, firstValueFrom, map, of } from 'rxjs';
 
 @Injectable({

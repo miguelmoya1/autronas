@@ -8,6 +8,7 @@ import { ServicesModule } from '@autronas/backend/services';
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { CqrsModule } from '@nestjs/cqrs';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -23,6 +24,8 @@ import { CqrsModule } from '@nestjs/cqrs';
     DatabaseModule,
     EventsModule,
     GatewaysModule,
+
+    AuthModule,
   ],
   controllers: [],
 })

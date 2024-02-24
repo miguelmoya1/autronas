@@ -1,6 +1,6 @@
 import { inject } from '@angular/core';
 import { ResolveFn } from '@angular/router';
-import { STORE_KEYS, StoreService } from '@sleep-valley/app/store';
+import { STORE_KEYS, StoreService } from '@autronas/app/store';
 import { filter, interval } from 'rxjs';
 
 export const translateResolver: ResolveFn<number> = () => {

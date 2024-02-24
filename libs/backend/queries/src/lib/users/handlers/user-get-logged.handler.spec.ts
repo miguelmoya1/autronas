@@ -25,16 +25,12 @@ describe('UserGetLoggedHandler', () => {
 
   describe('execute', () => {
     it('should call the userService.get function', async () => {
-      const gameID = 'gameID';
       const userLogged = { id: '1' } as User;
       const query = new UserGetLoggedQuery(userLogged);
 
       await userGetAllHandler.execute(query);
 
-      expect(usersService.getLogged).toHaveBeenCalledWith(
-        userLogged.id,
-        gameID,
-      );
+      expect(usersService.getLogged).toHaveBeenCalledWith(userLogged.id);
     });
   });
 });

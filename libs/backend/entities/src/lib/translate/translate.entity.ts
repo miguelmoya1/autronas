@@ -2,16 +2,10 @@ import { ApiProperty } from '@nestjs/swagger';
 
 export class TranslateEntity {
   @ApiProperty()
-  declare ACCEPT: string;
-
-  @ApiProperty()
   declare ACCESS_TOKEN_INVALID_STRING: string;
 
   @ApiProperty()
   declare ACCESS_TOKEN_REQUIRED: string;
-
-  @ApiProperty()
-  declare DECLINE: string;
 
   @ApiProperty()
   declare EMAIL_INVALID_EMAIL: string;
@@ -27,15 +21,6 @@ export class TranslateEntity {
 
   @ApiProperty()
   declare FAMILY_NAME_REQUIRED: string;
-
-  @ApiProperty()
-  declare GAME_STATUS_FINISHED: string;
-
-  @ApiProperty()
-  declare GAME_STATUS_PREPARING: string;
-
-  @ApiProperty()
-  declare GAME_STATUS_UNKNOWN: string;
 
   @ApiProperty()
   declare GIVEN_NAME_INVALID_STRING: string;
@@ -71,10 +56,13 @@ export class TranslateEntity {
   declare INVALID_USER: string;
 
   @ApiProperty()
-  declare UNAUTHORIZED: string;
+  declare LOGIN_TO_PLAY: string;
 
   @ApiProperty()
-  declare VOTES: string;
+  declare LOGIN_WITH_GOOGLE: string;
+
+  @ApiProperty()
+  declare UNAUTHORIZED: string;
 
   @ApiProperty()
   declare WEREWOLF: string;

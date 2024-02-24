@@ -1,7 +1,7 @@
 import { inject } from '@angular/core';
 import { toObservable } from '@angular/core/rxjs-interop';
 import { CanDeactivateFn, Router } from '@angular/router';
-import { STORE_KEYS, StoreService } from '@sleep-valley/app/store';
+import { STORE_KEYS, StoreService } from '@autronas/app/store';
 import { map, takeWhile, tap } from 'rxjs';
 
 export const authGuardLogged: CanDeactivateFn<boolean> = () => {

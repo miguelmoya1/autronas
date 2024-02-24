@@ -1,9 +1,13 @@
 import { HttpHandlerFn, HttpRequest } from '@angular/common/http';
+import { server_url, token_name } from '@autronas/app/helpers';
 import { Preferences } from '@capacitor/preferences';
 import { from, switchMap } from 'rxjs';
 
-export const headersInterceptor = (request: HttpRequest<unknown>, next: HttpHandlerFn) => {
-  return from(Preferences.get({ key: process.env['SV_TOKEN_NAME'] as string })).pipe(
+export const headersInterceptor = (
+  request: HttpRequest<unknown>,
+  next: HttpHandlerFn,
+) => {
+  return from(Preferences.get({ key: token_name })).pipe(
     switchMap(({ value }) => {
       let headersToAdd = request.headers;
 
@@ -16,7 +20,7 @@ export const headersInterceptor = (request: HttpRequest<unknown>, next: HttpHand
       }
 
       const authReq = request.clone({
-        url: process.env['SV_SERVER_URL'] + request.url,
+        url: server_url + request.url,
         headers: headersToAdd,
       });
 

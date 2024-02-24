@@ -1,11 +1,15 @@
 import { TestBed } from '@angular/core/testing';
-import { ActivatedRouteSnapshot, CanDeactivateFn, RouterStateSnapshot } from '@angular/router';
+import {
+  ActivatedRouteSnapshot,
+  CanDeactivateFn,
+  RouterStateSnapshot,
+} from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
-import { StoreService } from '@sleep-valley/app/store';
+import { StoreService } from '@autronas/app/store';
 import { Observable } from 'rxjs';
 import { authGuardLogged } from './auth.guard';
 
-jest.mock('@sleep-valley/app/store');
+jest.mock('@autronas/app/store');
 
 describe('authGuardLogged', () => {
   describe('authGuardLogged', () => {
@@ -25,7 +29,12 @@ describe('authGuardLogged', () => {
       const activatedRouteSnapshot = {} as ActivatedRouteSnapshot;
       const routerStateSnapshot = {} as RouterStateSnapshot;
 
-      const result = executeGuard(true, activatedRouteSnapshot, routerStateSnapshot, routerStateSnapshot);
+      const result = executeGuard(
+        true,
+        activatedRouteSnapshot,
+        routerStateSnapshot,
+        routerStateSnapshot,
+      );
 
       expect(result).toBeTruthy();
     });
@@ -34,7 +43,12 @@ describe('authGuardLogged', () => {
       const activatedRouteSnapshot = {} as ActivatedRouteSnapshot;
       const routerStateSnapshot = {} as RouterStateSnapshot;
 
-      const result = executeGuard(true, activatedRouteSnapshot, routerStateSnapshot, routerStateSnapshot);
+      const result = executeGuard(
+        true,
+        activatedRouteSnapshot,
+        routerStateSnapshot,
+        routerStateSnapshot,
+      );
 
       if (result instanceof Observable) {
         result.subscribe((value) => expect(value).toBeTruthy());

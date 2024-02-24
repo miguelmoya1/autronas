@@ -1,1 +1,1 @@
-export * from './lib/votes/';
+export * from './lib/auth/auth-dto.service';

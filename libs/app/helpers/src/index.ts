@@ -1,2 +1,1 @@
-export * from './lib/characters';
-export * from './lib/games';
+export * from './lib/globals';

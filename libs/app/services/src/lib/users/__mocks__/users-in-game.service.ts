@@ -1,5 +1,5 @@
 import { signal } from '@angular/core';
-import { defaultDataLoading } from '@sleep-valley/app/shared';
+import { defaultDataLoading } from '@autronas/app/shared';
 
 export class UsersInGameService {
   public readonly all = signal(defaultDataLoading());

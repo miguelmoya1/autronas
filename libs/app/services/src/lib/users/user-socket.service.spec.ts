@@ -3,8 +3,6 @@ import { TestBed } from '@angular/core/testing';
 import { Socket } from 'ngx-socket-io';
 import { UserSocketService } from './user-socket.service';
 
-jest.mock('@sleep-valley/app/services');
-
 describe('UserSocketService', () => {
   let service: UserSocketService;
 

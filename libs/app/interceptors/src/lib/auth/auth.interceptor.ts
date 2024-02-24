@@ -1,6 +1,10 @@
-import { HttpEventType, HttpInterceptorFn, HttpStatusCode } from '@angular/common/http';
+import {
+  HttpEventType,
+  HttpInterceptorFn,
+  HttpStatusCode,
+} from '@angular/common/http';
 import { inject } from '@angular/core';
-import { AuthService } from '@sleep-valley/app/services';
+import { AuthDtoService } from '@autronas/app/actions';
 import { tap } from 'rxjs';
 
 export const authInterceptor: HttpInterceptorFn = (req, next) => {
@@ -8,7 +12,7 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
     tap((res) => {
       if (res.type === HttpEventType.Response) {
         if (res.status === HttpStatusCode.Unauthorized) {
-          inject(AuthService).logout();
+          inject(AuthDtoService).logout();
         }
       }
     }),

@@ -1,6 +1,6 @@
 import { inject, Injectable } from '@angular/core';
-import { defaultDataLoading } from '@sleep-valley/app/shared';
-import { STORE_KEYS, StoreService } from '@sleep-valley/app/store';
+import { defaultDataLoading } from '@autronas/app/shared';
+import { STORE_KEYS, StoreService } from '@autronas/app/store';
 import { TranslateApiService } from './translate-api.service';
 
 // TODO: CHANGE WITH TESTING
@@ -22,7 +22,9 @@ export class TranslateService {
       this._store.set(STORE_KEYS.TRANSLATE, defaultDataLoading());
       this._lastLanguage = language;
 
-      const localTranslate = await this._translateAPI.getLocale(language || 'en');
+      const localTranslate = await this._translateAPI.getLocale(
+        language || 'en',
+      );
       const serverTranslates = await this._translateAPI.get(language || 'en');
 
       if (serverTranslates.serialize().error) {

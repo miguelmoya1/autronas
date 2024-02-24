@@ -1,8 +1,8 @@
 import { TestBed } from '@angular/core/testing';
-import { StoreService } from '@sleep-valley/app/store';
+import { StoreService } from '@autronas/app/store';
 import { TranslatePipe } from './translate.pipe';
 
-jest.mock('@sleep-valley/app/store');
+jest.mock('@autronas/app/store');
 
 describe('Translate Pipe', () => {
   beforeEach(() => {
