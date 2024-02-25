@@ -8,6 +8,8 @@ describe('migrations', () => {
 
     const files = await readdir(path.join(__dirname, migrationsFolder));
 
-    expect(migrations.length).toEqual(files.length);
+    const migrationsInFolder = files.filter((file) => file.endsWith('.ts'));
+
+    expect(migrations.length).toEqual(migrationsInFolder.length);
   });
 });

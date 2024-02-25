@@ -45,3 +45,10 @@ mat-drawer {
 
   padding: 1rem;
 }
+
+/* mat-drawer-content,
+mat-drawer,
+.container {
+  this is not working
+  transition: width 0.3s ease-in-out;
+} */
