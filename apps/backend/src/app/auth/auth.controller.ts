@@ -46,6 +46,7 @@ export class AuthController {
   @ApiOkResponse({ type: AuthResponseEntity })
   async loginGoogle(@Body() google: GoogleLoginEntity) {
     const commandRehydrate = new LoginGoogleCommand(google);
+
     return this.commandBus.execute(commandRehydrate);
   }
 }

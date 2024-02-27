@@ -12,25 +12,26 @@
 
         <div class="menu">
           <autronas-sidenav-button
-            icon="home"
-            label="HOME"
+            label="DASHBOARD"
+            icon="dashboard"
             [open]="open()"
-            [routerLink]="['/']"
+            [routerLink]="['/dashboard']"
+          />
+
+          <autronas-sidenav-button
+            label="CLIENTS"
+            icon="group"
+            [open]="open()"
+            [routerLink]="['/clients']"
           />
         </div>
 
-        <div class="footer">
-          <autronas-sidenav-button
-            icon="logout"
-            label="LOGOUT"
-            [open]="open()"
-          />
-        </div>
+        <div class="footer"></div>
       </div>
     </mat-drawer>
   }
 
   <mat-drawer-content>
-    <router-outlet />
+    <ng-content ng-content />
   </mat-drawer-content>
 </mat-drawer-container>

@@ -1,4 +1,5 @@
 import { Data } from '@autronas/app/shared';
+import { User } from '@autronas/core/interfaces';
 
 export enum STORE_KEYS {
   TRANSLATE = 'translate',
@@ -8,6 +9,8 @@ export enum STORE_KEYS {
   IS_LOGGED = 'isLogged',
 
   SOCKET_CONNECTED = 'socketConnected',
+
+  CURRENT_USER = 'currentUser',
 }
 
 export interface Store {
@@ -16,4 +19,6 @@ export interface Store {
   [STORE_KEYS.TOKEN]: Data<string>;
   [STORE_KEYS.IS_LOGGED]: boolean;
   [STORE_KEYS.SOCKET_CONNECTED]: boolean;
+
+  [STORE_KEYS.CURRENT_USER]: Data<User>;
 }

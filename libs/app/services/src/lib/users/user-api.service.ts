@@ -15,9 +15,9 @@ export class UserApiService {
   private readonly _URL = '/users';
   private readonly _http = inject(HttpClient);
 
-  public getAllInGame(gameID: string) {
+  public getMe() {
     return firstValueFrom(
-      this._http.get<User[]>(`${this._URL}/game/${gameID}`).pipe(
+      this._http.get<User>(`${this._URL}/me`).pipe(
         map((games) => new ApiOkResponse(games)),
         catchError((error) => of(new ApiErrorResponse(error))),
         map((response) => new DataFromApi(response)),

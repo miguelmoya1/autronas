@@ -5,7 +5,6 @@ import {
   MatDrawerContainer,
   MatDrawerContent,
 } from '@angular/material/sidenav';
-import { RouterOutlet } from '@angular/router';
 import { SidenavButtonComponent } from '@autronas/app/components';
 import { TranslatePipe } from '@autronas/app/pipes';
 import { STORE_KEYS, StoreService } from '@autronas/app/store';
@@ -13,8 +12,8 @@ import { STORE_KEYS, StoreService } from '@autronas/app/store';
 @Component({
   selector: 'autronas-sidenav-view',
   standalone: true,
-  templateUrl: './sidenav.component.html',
-  styleUrl: './sidenav.component.css',
+  templateUrl: './sidenav.view.html',
+  styleUrl: './sidenav.view.css',
   imports: [
     MatDrawer,
     TranslatePipe,
@@ -22,7 +21,6 @@ import { STORE_KEYS, StoreService } from '@autronas/app/store';
     SidenavButtonComponent,
     MatDrawerContainer,
     MatDrawerContent,
-    RouterOutlet,
   ],
 })
 export class SidenavView {

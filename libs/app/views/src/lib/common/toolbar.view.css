@@ -1,0 +1,7 @@
+:host {
+  --mat-toolbar-container-background-color: var(--mat-app-background,);
+}
+
+.spacer {
+  flex: 1 1 auto;
+}

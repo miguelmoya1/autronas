@@ -1,0 +1,20 @@
+@if (isLogged()) {
+  @if (currentUser().data; as user) {
+    <div class="profile" [matMenuTriggerFor]="menu">
+      <img
+        ngSrc="{{ user.imageUrl }}"
+        alt="{{ user.name }}"
+        class="avatar"
+        width="40"
+        height="40"
+      />
+    </div>
+
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="logout()">
+        <mat-icon>logout</mat-icon>
+        <span>{{ 'LOGOUT' | translate }}</span>
+      </button>
+    </mat-menu>
+  }
+}

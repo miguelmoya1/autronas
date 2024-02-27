@@ -28,6 +28,8 @@ mat-drawer {
 
     .menu {
       height: 100%;
+      flex-direction: column;
+      gap: 0.5rem;
     }
 
     .footer {

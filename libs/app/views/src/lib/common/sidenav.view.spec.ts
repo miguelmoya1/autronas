@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { ActivatedRoute } from '@angular/router';
 import { StoreService } from '@autronas/app/store';
-import { SidenavView } from './sidenav.component';
+import { SidenavView } from './sidenav.view';
 
 jest.mock('@autronas/app/store');
 

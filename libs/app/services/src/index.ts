@@ -3,4 +3,6 @@ export * from './lib/auth/auth-socket.service';
 export * from './lib/auth/auth.service';
 export * from './lib/shared/validators.service';
 export * from './lib/translates/translate.service';
+export * from './lib/users/user-api.service';
 export * from './lib/users/user-socket.service';
+export * from './lib/users/user.service';

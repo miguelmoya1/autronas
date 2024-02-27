@@ -7,16 +7,22 @@
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
+    "noFallthroughCasesInSwitch": true
   },
   "files": [],
   "include": [],
   "references": [
     {
-      "path": "./tsconfig.lib.json",
+      "path": "./tsconfig.lib.json"
     },
     {
-      "path": "./tsconfig.spec.json",
-    },
+      "path": "./tsconfig.spec.json"
+    }
   ],
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
+  }
 }

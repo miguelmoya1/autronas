@@ -45,5 +45,7 @@ export class StoreService {
 
     this._store.set(STORE_KEYS.IS_LOGGED, signal(false));
     this._store.set(STORE_KEYS.SOCKET_CONNECTED, signal(false));
+
+    this._store.set(STORE_KEYS.CURRENT_USER, signal(defaultDataLoading()));
   }
 }

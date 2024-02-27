@@ -10,7 +10,11 @@ import { GoogleAuth } from '@codetrix-studio/capacitor-google-auth';
 export class AuthService {
   private readonly _store = inject(StoreService);
 
-  public async init() {
+  constructor() {
+    this.init();
+  }
+
+  private async init() {
     GoogleAuth.initialize({
       clientId: sv_google_login_client_id,
       scopes: ['profile', 'email'],
@@ -20,16 +24,15 @@ export class AuthService {
     const { keys } = await Preferences.keys();
 
     if (!keys.includes(token_name)) {
-      return this._store.set(STORE_KEYS.IS_LOGGED, false);
+      return;
     }
 
     const { value } = await Preferences.get({ key: token_name });
 
     if (!value) {
-      return this._store.set(STORE_KEYS.IS_LOGGED, false);
+      return;
     }
 
-    this._store.set(STORE_KEYS.IS_LOGGED, true);
     this._store.set(STORE_KEYS.TOKEN, {
       loading: false,
       data: value,

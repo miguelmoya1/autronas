@@ -1,0 +1,6 @@
+main {
+  flex: 1 1 auto;
+  height: calc(100% - var(--mat-toolbar-standard-height));
+
+  overflow-y: auto;
+}

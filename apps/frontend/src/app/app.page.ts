@@ -1,31 +1,53 @@
-import { Component, OnInit, inject, signal } from '@angular/core';
+import { Component, OnInit, effect, inject, untracked } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 import { AuthDtoService } from '@autronas/app/actions';
-import { AuthService } from '@autronas/app/services';
+import { AuthService, UserService } from '@autronas/app/services';
 import { STORE_KEYS, StoreService } from '@autronas/app/store';
-import { SidenavView } from '@autronas/app/views';
+import { SidenavView, ToolbarView } from '@autronas/app/views';
 
 @Component({
   selector: 'autronas-root',
   standalone: true,
-  template: ` <autronas-sidenav-view /> `,
+  template: `
+    <autronas-sidenav-view>
+      <autronas-toolbar-view />
+
+      <main>
+        <router-outlet />
+      </main>
+    </autronas-sidenav-view>
+  `,
   styleUrl: './app.page.css',
-  imports: [SidenavView],
+  imports: [SidenavView, RouterOutlet, ToolbarView],
 })
 export class AppPage implements OnInit {
-  private readonly _authService = inject(AuthService);
   private readonly _store = inject(StoreService);
   private readonly _authDtoService = inject(AuthDtoService);
 
-  showFiller = false;
+  // LOAD THE SERVICES HERE
+  private readonly _userService = inject(UserService);
+  private readonly _authService = inject(AuthService);
 
-  open = signal(false);
+  private firstLoad = true;
 
-  toggle() {
-    this.open.set(!this.open());
+  constructor() {
+    effect(() => {
+      const tokenData = this._store.get(STORE_KEYS.TOKEN)();
+
+      untracked(() => {
+        if (!tokenData.loading && this.firstLoad && tokenData.data) {
+          this._authDtoService.rehydrate();
+          this.firstLoad = false;
+        }
+      });
+    });
   }
 
-  async ngOnInit() {
-    await this.loadServices();
+  ngOnInit() {
+    this.setTheme();
+  }
+
+  private setTheme() {
     // when the user change the theme, we update the body class (with prefer-color-scheme)
     window
       .matchMedia('(prefers-color-scheme: light)')
@@ -35,15 +57,6 @@ export class AppPage implements OnInit {
 
     // set the initial theme
     this.toggleClass(window.matchMedia('(prefers-color-scheme: light)'));
-  }
-
-  private async loadServices() {
-    await this._authService.init();
-
-    // if the user is logged, then rehydrate
-    if (this._store.get(STORE_KEYS.IS_LOGGED)()) {
-      await this._authDtoService.rehydrate();
-    }
   }
 
   private toggleClass(e: MediaQueryList | MediaQueryListEvent) {
