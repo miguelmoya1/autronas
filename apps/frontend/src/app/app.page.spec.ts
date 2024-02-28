@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AuthDtoService } from '@autronas/app/actions';
-import { AuthService } from '@autronas/app/services';
+import { AuthService, UserService } from '@autronas/app/services';
 import { StoreService } from '@autronas/app/store';
 import { AppPage } from './app.page';
 
@@ -14,7 +14,7 @@ describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [AppPage, RouterTestingModule, NoopAnimationsModule],
-      providers: [AuthService, StoreService, AuthDtoService],
+      providers: [AuthService, StoreService, AuthDtoService, UserService],
     }).compileComponents();
   });
 
