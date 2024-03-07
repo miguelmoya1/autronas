@@ -9,6 +9,8 @@ import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { CqrsModule } from '@nestjs/cqrs';
 import { AuthModule } from './auth/auth.module';
+import { ClientsModule } from './clients/clients.module';
+import { TranslateModule } from './translate/translate.module';
 import { UsersModule } from './users/users.module';
 
 @Module({
@@ -27,8 +29,9 @@ import { UsersModule } from './users/users.module';
     GatewaysModule,
 
     AuthModule,
+    ClientsModule,
     UsersModule,
+    TranslateModule,
   ],
-  controllers: [],
 })
 export class AppModule {}

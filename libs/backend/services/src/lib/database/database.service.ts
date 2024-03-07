@@ -76,18 +76,6 @@ export class DatabaseService implements OnApplicationBootstrap {
             googleToken:
               'eyJhbGciOiJSUzI1NiIsImtpZCI6ImY0NTEzNDVmYWQwODEwMWJmYjM0NWNmNjQyYTJkYTkyNjdiOWViZWIiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJhY2NvdW50cy5nb29nbGUuY29tIiwiYXpwIjoiMjQ3NDc3MDE5MTg4LTluaDNkcm9saHBxZm50b2Jlb3NnZDQxdmdvZjN1dXU2LmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwiYXVkIjoiMjQ3NDc3MDE5MTg4LTluaDNkcm9saHBxZm50b2Jlb3NnZDQxdmdvZjN1dXU2LmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwic3ViIjoiMTAyMDMyMDM4ODE4NDI4MjQyMjM5IiwiZW1haWwiOiJtaWd1ZWxtb3lhb3J0ZWdhQGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJhdF9oYXNoIjoiVWUwV1kxaXZOUGZ0RDJoZ1U2bVhBZyIsIm5hbWUiOiJNaWd1ZWwgTW95YSBPcnRlZ2EiLCJwaWN0dXJlIjoiaHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUxtNXd1MGs3WXVqZGwtRk1mQjVIdVVFSU1VbzFKRFdLbVdMcGtvSVpYMVZ3Zz1zOTYtYyIsImdpdmVuX25hbWUiOiJNaWd1ZWwiLCJmYW1pbHlfbmFtZSI6Ik1veWEgT3J0ZWdhIiwibG9jYWxlIjoiZXMiLCJpYXQiOjE2NjgxMTkwODAsImV4cCI6MTY2ODEyMjY4MCwianRpIjoiYzNlMzQzZmFiOTIyMjVjYTdhNDEwNzU0ZDQ0YWY5MGNlZTU5YjFjYiJ9.bEofwxhEDFb9T3G3xG0_wELGtt20TjTCMnTIlJ08A-RLD-N6MCg7U5t0reZefgRPoX3GWSa2x_lkDKab_JH6zd3Ff7BKbpLGK1nlH7wgAHBD-aTpZ-3rCXE90s8z3RQgGV9__piJgIFha8DmGtPzKxNkneMAxoSZz2lgbxuQ4GqQ7nLSsGA_fqg4IjEBwOgwx-BpVPjfCfBGVnLzZgNuu_jimMnuw4yS9DRflnbSKrjqh9WWMl3vFPucaodnC37ojF5o-DC1IoiUvD7LfdSmC0hLFXl1flDoS58Jmq-friS1PZhR3zXhk3LKi5B_pxyp8tCe29D520BjOV7x1VzKnw',
           } as User);
-
-          const usersToCreate: User[] = [];
-
-          for (const i of Array(2).keys()) {
-            usersToCreate.push({
-              name: `User ${i}`,
-              email: `email${i}@gmail.com`,
-              surname: `Surname ${i}`,
-            } as User);
-          }
-
-          await this.userModel.bulkCreate(usersToCreate);
         }
       } catch (error) {
         this.logger.error(error);

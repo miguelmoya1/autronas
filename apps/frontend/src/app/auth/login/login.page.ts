@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { TranslatePipe } from '@autronas/app/pipes';
-import { LoginView } from '@autronas/app/views';
+import { TranslatePipe } from '@autronas/frontend/pipes';
+import { LoginView } from '@autronas/frontend/views';
 
 @Component({
   selector: 'autronas-login-page',

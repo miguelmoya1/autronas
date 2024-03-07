@@ -2,11 +2,12 @@ import {
   UserLoggedInEvent,
   UserRehydratedEvent,
 } from '@autronas/backend/events';
+import { User } from '@autronas/core/interfaces';
 import { AggregateRoot } from '@nestjs/cqrs';
 import { ApiProperty } from '@nestjs/swagger';
 import { Exclude } from 'class-transformer';
 
-class UserPermissions {
+class UserPermissions implements UserPermissions {
   @ApiProperty()
   declare canEdit: boolean;
 
@@ -23,7 +24,7 @@ class UserPermissions {
   }
 }
 
-export class UserEntity extends AggregateRoot {
+export class UserEntity extends AggregateRoot implements User {
   @ApiProperty()
   public declare id: string;
 
@@ -52,10 +53,10 @@ export class UserEntity extends AggregateRoot {
   public declare createdAt: Date;
 
   @Exclude()
-  public declare deletedAt: Date;
+  public declare updatedAt: Date;
 
   @Exclude()
-  public declare updatedAt: Date;
+  public declare deletedAt: Date | null;
 
   constructor(partial: Partial<UserEntity>, user: Partial<UserEntity>) {
     super();

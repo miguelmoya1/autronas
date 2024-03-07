@@ -8,6 +8,18 @@ export class TranslateEntity {
   declare ACCESS_TOKEN_REQUIRED: string;
 
   @ApiProperty()
+  declare CLIENTS: string;
+
+  @ApiProperty()
+  declare CLIENT_NAME_INVALID_STRING: string;
+
+  @ApiProperty()
+  declare CLIENT_NAME_REQUIRED: string;
+
+  @ApiProperty()
+  declare CREATED_AT: string;
+
+  @ApiProperty()
   declare EMAIL_INVALID_EMAIL: string;
 
   @ApiProperty()
@@ -15,6 +27,12 @@ export class TranslateEntity {
 
   @ApiProperty()
   declare EMAIL_REQUIRED: string;
+
+  @ApiProperty()
+  declare ERROR_CREATING_CLIENT: string;
+
+  @ApiProperty()
+  declare ERROR_UPDATING_CLIENT: string;
 
   @ApiProperty()
   declare FAMILY_NAME_INVALID_STRING: string;
@@ -50,10 +68,16 @@ export class TranslateEntity {
   declare INVALID_GAME_ID: string;
 
   @ApiProperty()
+  declare INVALID_NUMBER: string;
+
+  @ApiProperty()
   declare INVALID_TOKEN: string;
 
   @ApiProperty()
   declare INVALID_USER: string;
+
+  @ApiProperty()
+  declare ITEMS_PER_PAGE: string;
 
   @ApiProperty()
   declare LOGIN_TO_PLAY: string;
@@ -62,8 +86,32 @@ export class TranslateEntity {
   declare LOGIN_WITH_GOOGLE: string;
 
   @ApiProperty()
-  declare UNAUTHORIZED: string;
+  declare LOGOUT: string;
 
   @ApiProperty()
-  declare WEREWOLF: string;
+  declare MAX_50: string;
+
+  @ApiProperty()
+  declare MIN_0: string;
+
+  @ApiProperty()
+  declare MIN_1: string;
+
+  @ApiProperty()
+  declare NAME: string;
+
+  @ApiProperty()
+  declare NEXT_PAGE: string;
+
+  @ApiProperty()
+  declare NO_DATA: string;
+
+  @ApiProperty()
+  declare PREVIOUS_PAGE: string;
+
+  @ApiProperty()
+  declare REQUIRED: string;
+
+  @ApiProperty()
+  declare UNAUTHORIZED: string;
 }

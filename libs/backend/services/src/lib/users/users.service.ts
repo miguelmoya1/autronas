@@ -12,7 +12,7 @@ export class UsersService {
     @InjectModel(UserModel) private readonly userModel: typeof UserModel,
   ) {}
 
-  public async get(userID: UserEntity['id'], user: Partial<UserEntity>) {
+  public async get(userID: UserEntity['id'], user: UserEntity) {
     const userDB = await this.userModel.findOne({
       ...UserModel.baseOptions,
       where: { id: userID },

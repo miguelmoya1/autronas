@@ -1,3 +1,3 @@
 export enum Events {
-  GAME = 'game',
+  USER = 'user',
 }

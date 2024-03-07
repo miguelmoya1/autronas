@@ -1,4 +1,3 @@
-import { Events } from '@autronas/core/enums';
 import { ShouldRefresh } from '@autronas/core/interfaces';
 import { HttpException, HttpStatus, Logger } from '@nestjs/common';
 import {
@@ -62,9 +61,10 @@ export class GameGateway {
 
   async sendToRoom(gameID: string, data: ShouldRefresh) {
     this.logger.verbose(
-      `sending to game socket ${gameID}: event ${Events.GAME}`,
+      // `sending to game socket ${gameID}: event ${Events.GAME}`,
+      'sending to game socket',
     );
 
-    this.server.to(gameID).emit(Events.GAME, data);
+    // this.server.to(gameID).emit(Events.GAME, data);
   }
 }

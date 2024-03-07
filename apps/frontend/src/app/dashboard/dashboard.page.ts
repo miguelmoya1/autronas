@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
-  selector: 'autronas-dashboard',
+  selector: 'autronas-dashboard-page',
   standalone: true,
   imports: [],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam aliquam ea
     nemo facilis architecto facere, amet repudiandae sapiente temporibus natus

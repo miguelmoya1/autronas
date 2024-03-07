@@ -1,5 +1,5 @@
-import { User } from '@autronas/core/interfaces';
+import { UserEntity } from '@autronas/backend/entities';
 
 export class UserGetLoggedQuery {
-  constructor(public readonly user: User) {}
+  constructor(public readonly user: UserEntity) {}
 }

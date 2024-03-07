@@ -1,0 +1,37 @@
+<mat-drawer-container autosize>
+  @if (isLogged()) {
+    <mat-drawer [opened]="true" mode="side" >
+      <div class="container" [ngClass]="{ closed: !open() }">
+        <div class="toggle_icon">
+          <autronas-sidenav-button
+            icon="menu"
+            [open]="open()"
+            (click)="toggle()"
+          />
+        </div>
+
+        <div class="menu">
+          <autronas-sidenav-button
+            label="DASHBOARD"
+            icon="dashboard"
+            [open]="open()"
+            [routerLink]="['/dashboard']"
+          />
+
+          <autronas-sidenav-button
+            label="CLIENTS"
+            icon="group"
+            [open]="open()"
+            [routerLink]="['/clients']"
+          />
+        </div>
+
+        <div class="footer"></div>
+      </div>
+    </mat-drawer>
+  }
+
+  <mat-drawer-content>
+    <ng-content ng-content />
+  </mat-drawer-content>
+</mat-drawer-container>

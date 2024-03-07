@@ -3,4 +3,7 @@ main {
   height: calc(100% - var(--mat-toolbar-standard-height));
 
   overflow-y: auto;
+  overflow-x: hidden;
+
+  padding: 0 16px;
 }

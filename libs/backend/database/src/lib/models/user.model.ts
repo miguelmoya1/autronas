@@ -1,6 +1,21 @@
 import { User } from '@autronas/core/interfaces';
-import { FindOptions, STRING, TEXT, UUID, UUIDV4 } from 'sequelize';
-import { Column, Model, Table } from 'sequelize-typescript';
+import {
+  FindOptions,
+  HasManyAddAssociationsMixin,
+  HasManyCountAssociationsMixin,
+  HasManyCreateAssociationMixin,
+  HasManyGetAssociationsMixin,
+  HasManyHasAssociationMixin,
+  HasManyHasAssociationsMixin,
+  HasManyRemoveAssociationMixin,
+  HasManySetAssociationsMixin,
+  STRING,
+  TEXT,
+  UUID,
+  UUIDV4,
+} from 'sequelize';
+import { Column, HasMany, Model, Table } from 'sequelize-typescript';
+import { ClientModel } from './client.model';
 
 @Table({
   tableName: 'Users',
@@ -41,6 +56,40 @@ export class UserModel extends Model<User> {
     type: TEXT,
   })
   declare googleToken: string;
+
+  @HasMany(() => ClientModel, 'userID')
+  declare clients?: ClientModel[];
+  declare getClients?: HasManyGetAssociationsMixin<ClientModel>;
+  declare setClients?: HasManySetAssociationsMixin<
+    ClientModel,
+    ClientModel['id']
+  >;
+  declare addClients?: HasManyAddAssociationsMixin<
+    ClientModel,
+    ClientModel['id']
+  >;
+  declare addClient?: HasManyAddAssociationsMixin<
+    ClientModel,
+    ClientModel['id']
+  >;
+  declare createClient?: HasManyCreateAssociationMixin<ClientModel>;
+  declare removeClient?: HasManyRemoveAssociationMixin<
+    ClientModel,
+    ClientModel['id']
+  >;
+  declare removeClients?: HasManyRemoveAssociationMixin<
+    ClientModel,
+    ClientModel['id']
+  >;
+  declare hasClient?: HasManyHasAssociationMixin<
+    ClientModel,
+    ClientModel['id']
+  >;
+  declare hasClients?: HasManyHasAssociationsMixin<
+    ClientModel,
+    ClientModel['id']
+  >;
+  declare countClients?: HasManyCountAssociationsMixin;
 
   static get baseOptions(): FindOptions<UserModel> {
     return {};

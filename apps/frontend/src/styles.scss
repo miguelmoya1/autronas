@@ -1,26 +1,20 @@
 @use '@angular/material' as mat;
 @use '@angular/material-experimental' as matx;
 
-@import '@angular/cdk/overlay-prebuilt.css';
+// @import '@angular/cdk/overlay-prebuilt.css';
 
 $m3-dark-theme: matx.define-theme(
   (
     color: (
       theme-type: dark,
-      primary: matx.$m3-cyan-palette,
-      tertiary: matx.$m3-blue-palette,
     ),
   )
 );
 
-$m3-light-theme: matx.define-theme(
-  (
-    color: (
-      primary: matx.$m3-cyan-palette,
-      tertiary: matx.$m3-blue-palette,
-    ),
-  )
-);
+$m3-light-theme: matx.define-theme();
+
+@include mat.core();
+
 /* You can add global styles to this file, and also import other style files */
 
 html,
@@ -44,21 +38,25 @@ html {
 }
 
 body.dark-theme {
-  background: #121212;
+  background: var(--mat-app-background-color);
 }
 
 ::-webkit-scrollbar {
   width: 8px;
 }
+
 ::-webkit-scrollbar {
   width: 16px;
 }
+
 ::-webkit-scrollbar-thumb {
   background-color: rgba(227, 227, 227, 0.16);
 }
+
 ::-webkit-scrollbar-thumb {
   background-color: rgb(95, 99, 104);
 }
+
 ::-webkit-scrollbar-thumb {
   background-clip: padding-box;
   background-color: rgba(31, 31, 31, 0.16);
@@ -68,6 +66,7 @@ body.dark-theme {
   height: 185px;
   max-height: 33%;
 }
+
 ::-webkit-scrollbar-thumb {
   background: rgb(218, 220, 224);
   background-clip: padding-box;
@@ -76,6 +75,7 @@ body.dark-theme {
   box-shadow: none;
   min-height: 50px;
 }
+
 ::-webkit-scrollbar-track {
   background: transparent;
   border: none;
@@ -86,4 +86,61 @@ body.dark-theme {
 ::-webkit-scrollbar-track:hover {
   background: none;
   border: none;
+}
+
+.side-sheets,
+.dialog,
+.dialog-full-screen {
+  transition: transform 0.3s ease-in-out;
+  background-color: var(--mat-sidenav-container-background-color);
+}
+
+.dialog,
+.dialog-full-screen,
+.side-sheets {
+  padding: 24px 12px 24px 16px;
+
+  > * {
+    overflow-y: auto;
+  }
+}
+
+.side-sheets {
+  width: 32rem;
+  max-width: 100%;
+  height: 100%;
+
+  border-top-left-radius: var(--mat-sidenav-container-shape);
+  border-bottom-left-radius: var(--mat-sidenav-container-shape);
+
+  box-shadow: var(--mdc-dialog-container-elevation-shadow);
+}
+
+.dialog {
+  min-width: 280px;
+  max-width: 560px;
+
+  max-height: 90%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: var(--mat-sidenav-container-shape);
+
+  box-shadow: var(--mdc-dialog-container-elevation-shadow);
+}
+
+.dialog-full-screen {
+  min-width: 280px;
+  max-width: min(1000%, 560px);
+  border-radius: var(--mat-sidenav-container-shape);
+
+  box-shadow: var(--mdc-dialog-container-elevation-shadow);
+}
+
+@media (max-width: 560px) {
+  .dialog-full-screen {
+    border-radius: 0;
+  }
 }

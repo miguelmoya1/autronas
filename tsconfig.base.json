@@ -15,17 +15,21 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@autronas/app/actions": ["libs/app/actions/src/index.ts"],
-      "@autronas/app/components": ["libs/app/components/src/index.ts"],
-      "@autronas/app/guards": ["libs/app/guards/src/index.ts"],
-      "@autronas/app/helpers": ["libs/app/helpers/src/index.ts"],
-      "@autronas/app/interceptors": ["libs/app/interceptors/src/index.ts"],
-      "@autronas/app/pipes": ["libs/app/pipes/src/index.ts"],
-      "@autronas/app/resolvers": ["libs/app/resolvers/src/index.ts"],
-      "@autronas/app/services": ["libs/app/services/src/index.ts"],
-      "@autronas/app/shared": ["libs/app/shared/src/index.ts"],
-      "@autronas/app/store": ["libs/app/store/src/index.ts"],
-      "@autronas/app/views": ["libs/app/views/src/index.ts"],
+      "@autronas/frontend/actions": ["libs/frontend/actions/src/index.ts"],
+      "@autronas/frontend/components": [
+        "libs/frontend/components/src/index.ts"
+      ],
+      "@autronas/frontend/guards": ["libs/frontend/guards/src/index.ts"],
+      "@autronas/frontend/helpers": ["libs/frontend/helpers/src/index.ts"],
+      "@autronas/frontend/interceptors": [
+        "libs/frontend/interceptors/src/index.ts"
+      ],
+      "@autronas/frontend/pipes": ["libs/frontend/pipes/src/index.ts"],
+      "@autronas/frontend/resolvers": ["libs/frontend/resolvers/src/index.ts"],
+      "@autronas/frontend/services": ["libs/frontend/services/src/index.ts"],
+      "@autronas/frontend/shared": ["libs/frontend/shared/src/index.ts"],
+      "@autronas/frontend/store": ["libs/frontend/store/src/index.ts"],
+      "@autronas/frontend/views": ["libs/frontend/views/src/index.ts"],
       "@autronas/backend/commands": ["libs/backend/commands/src/index.ts"],
       "@autronas/backend/database": ["libs/backend/database/src/index.ts"],
       "@autronas/backend/decorators": ["libs/backend/decorators/src/index.ts"],

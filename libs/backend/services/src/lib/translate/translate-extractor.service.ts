@@ -40,21 +40,24 @@ export class TranslateExtractorService {
       `placeholder=.${this.variableNameRegexp}.`,
       // [placeholder]="'error.invalid_date' | translate"
       `\\[placeholder\\]='${this.variableNameRegexp}' \\| translate`,
-      // todo: check "." and " " in the regexp
       // label="error.invalid_date"
       `label=.${this.variableNameRegexp}.`,
       // [label]="'error.invalid_date' | translate"
       `\\[label\\]='${this.variableNameRegexp}' \\| translate`,
       // .translate('error.invalid_date')
       `\\.translate\\('${this.variableNameRegexp}'\\)`,
-      // enums like WEREWOLF = 'WEREWOLF',
+      // enums like error.invalid_date = 'error.invalid_date',
       `${this.variableNameRegexp} = '${this.variableNameRegexp}'`,
+      // data?.['error.invalid_date'] || 'Next page';
+      `data\\?\\.\\['${this.variableNameRegexp}'\\]`,
     ];
 
     for (const file of files) {
       const content = await readFile(join(folder, file), 'utf8');
 
-      const results = regexps.flatMap((regexp) => this.extractKeys(content, new RegExp(regexp, 'g')));
+      const results = regexps.flatMap((regexp) =>
+        this.extractKeys(content, new RegExp(regexp, 'g')),
+      );
 
       strings.push(...results);
     }

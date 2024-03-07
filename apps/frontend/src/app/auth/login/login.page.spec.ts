@@ -1,8 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { AuthApiService, TranslateService } from '@autronas/app/services';
+import { AuthApiService, TranslateService } from '@autronas/frontend/services';
 import AuthLoginPage from './login.page';
 
-jest.mock('@autronas/app/services');
+jest.mock('@autronas/frontend/services');
 
 describe('AuthLoginPage', () => {
   let component: AuthLoginPage;

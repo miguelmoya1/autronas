@@ -1,8 +1,14 @@
-import { Module } from '@nestjs/common';
+import { Global, Module } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { SequelizeOptions } from 'sequelize-typescript';
+import { ClientModel } from './models/client.model';
+import { MigrationsModel } from './models/migration.model';
+import { UserModel } from './models/user.model';
 
+export const models = [MigrationsModel, UserModel, ClientModel];
+
+@Global()
 @Module({
   imports: [
     SequelizeModule.forRootAsync({
@@ -44,6 +50,8 @@ import { SequelizeOptions } from 'sequelize-typescript';
           },
         }) as SequelizeOptions,
     }),
+    SequelizeModule.forFeature(models),
   ],
+  exports: [SequelizeModule],
 })
 export class DatabaseModule {}

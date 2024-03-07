@@ -1,9 +1,15 @@
-import { Component, OnInit, effect, inject, untracked } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  OnInit,
+  effect,
+  inject,
+  untracked,
+} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { AuthDtoService } from '@autronas/app/actions';
-import { AuthService, UserService } from '@autronas/app/services';
-import { STORE_KEYS, StoreService } from '@autronas/app/store';
-import { SidenavView, ToolbarView } from '@autronas/app/views';
+import { AuthDtoService } from '@autronas/frontend/actions';
+import { STORE_KEYS, StoreService } from '@autronas/frontend/store';
+import { SidenavView, ToolbarView } from '@autronas/frontend/views';
 
 @Component({
   selector: 'autronas-root',
@@ -19,27 +25,26 @@ import { SidenavView, ToolbarView } from '@autronas/app/views';
   `,
   styleUrl: './app.page.css',
   imports: [SidenavView, RouterOutlet, ToolbarView],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppPage implements OnInit {
   private readonly _store = inject(StoreService);
   private readonly _authDtoService = inject(AuthDtoService);
-
-  // LOAD THE SERVICES HERE
-  private readonly _userService = inject(UserService);
-  private readonly _authService = inject(AuthService);
 
   private firstLoad = true;
 
   constructor() {
     effect(() => {
       const tokenData = this._store.get(STORE_KEYS.TOKEN)();
+      const isLoggedLoading = this._store.get(STORE_KEYS.IS_LOGGED_LOADING)();
 
-      untracked(() => {
-        if (!tokenData.loading && this.firstLoad && tokenData.data) {
+      if (tokenData && this.firstLoad && !isLoggedLoading) {
+        untracked(() => {
           this._authDtoService.rehydrate();
-          this.firstLoad = false;
-        }
-      });
+        });
+
+        this.firstLoad = false;
+      }
     });
   }
 

@@ -6,6 +6,7 @@ import {
   importProvidersFrom,
   provideZoneChangeDetection,
 } from '@angular/core';
+import { MatPaginatorIntl } from '@angular/material/paginator';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import {
   Router,
@@ -13,12 +14,13 @@ import {
   withComponentInputBinding,
   withInMemoryScrolling,
 } from '@angular/router';
-import { server_url, token_name } from '@autronas/app/helpers';
+import { server_url, token_name } from '@autronas/frontend/helpers';
 import {
   authInterceptor,
   headersInterceptor,
   loggerInterceptor,
-} from '@autronas/app/interceptors';
+} from '@autronas/frontend/interceptors';
+import { MatPaginatorIntlService } from '@autronas/frontend/services';
 import { Preferences } from '@capacitor/preferences';
 import * as Sentry from '@sentry/angular-ivy';
 import { SocketIoConfig, SocketIoModule } from 'ngx-socket-io';
@@ -69,6 +71,10 @@ export const appConfig: ApplicationConfig = {
       useFactory: () => () => {},
       deps: [Sentry.TraceService],
       multi: true,
+    },
+    {
+      provide: MatPaginatorIntl,
+      useClass: MatPaginatorIntlService,
     },
   ],
 };
