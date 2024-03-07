@@ -15,21 +15,6 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@autronas/frontend/actions": ["libs/frontend/actions/src/index.ts"],
-      "@autronas/frontend/components": [
-        "libs/frontend/components/src/index.ts"
-      ],
-      "@autronas/frontend/guards": ["libs/frontend/guards/src/index.ts"],
-      "@autronas/frontend/helpers": ["libs/frontend/helpers/src/index.ts"],
-      "@autronas/frontend/interceptors": [
-        "libs/frontend/interceptors/src/index.ts"
-      ],
-      "@autronas/frontend/pipes": ["libs/frontend/pipes/src/index.ts"],
-      "@autronas/frontend/resolvers": ["libs/frontend/resolvers/src/index.ts"],
-      "@autronas/frontend/services": ["libs/frontend/services/src/index.ts"],
-      "@autronas/frontend/shared": ["libs/frontend/shared/src/index.ts"],
-      "@autronas/frontend/store": ["libs/frontend/store/src/index.ts"],
-      "@autronas/frontend/views": ["libs/frontend/views/src/index.ts"],
       "@autronas/backend/commands": ["libs/backend/commands/src/index.ts"],
       "@autronas/backend/database": ["libs/backend/database/src/index.ts"],
       "@autronas/backend/decorators": ["libs/backend/decorators/src/index.ts"],
@@ -45,7 +30,22 @@
       "@autronas/backend/shared": ["libs/backend/shared/src/index.ts"],
       "@autronas/backend/testing": ["libs/backend/testing/src/index.ts"],
       "@autronas/core/enums": ["libs/core/enums/src/index.ts"],
-      "@autronas/core/interfaces": ["libs/core/interfaces/src/index.ts"]
+      "@autronas/core/interfaces": ["libs/core/interfaces/src/index.ts"],
+      "@autronas/frontend/actions": ["libs/frontend/actions/src/index.ts"],
+      "@autronas/frontend/components": [
+        "libs/frontend/components/src/index.ts"
+      ],
+      "@autronas/frontend/guards": ["libs/frontend/guards/src/index.ts"],
+      "@autronas/frontend/helpers": ["libs/frontend/helpers/src/index.ts"],
+      "@autronas/frontend/interceptors": [
+        "libs/frontend/interceptors/src/index.ts"
+      ],
+      "@autronas/frontend/pipes": ["libs/frontend/pipes/src/index.ts"],
+      "@autronas/frontend/resolvers": ["libs/frontend/resolvers/src/index.ts"],
+      "@autronas/frontend/services": ["libs/frontend/services/src/index.ts"],
+      "@autronas/frontend/shared": ["libs/frontend/shared/src/index.ts"],
+      "@autronas/frontend/store": ["libs/frontend/store/src/index.ts"],
+      "@autronas/frontend/views": ["libs/frontend/views/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
