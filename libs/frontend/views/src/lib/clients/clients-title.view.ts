@@ -11,12 +11,7 @@ import { TranslatePipe } from '@autronas/frontend/pipes';
     <div class="title-container">
       <h1>{{ 'CLIENTS' | translate }}</h1>
 
-      <button
-        mat-icon-button
-        color="primary"
-        [queryParams]="{ newClient: true }"
-        [routerLink]="['.']"
-      >
+      <button mat-icon-button color="primary" [routerLink]="['/clients/new']">
         <mat-icon>add</mat-icon>
       </button>
     </div>

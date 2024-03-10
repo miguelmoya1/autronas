@@ -17,7 +17,13 @@ export class TranslateEntity {
   declare CLIENT_NAME_REQUIRED: string;
 
   @ApiProperty()
+  declare CREATE: string;
+
+  @ApiProperty()
   declare CREATED_AT: string;
+
+  @ApiProperty()
+  declare CREATE_CLIENT: string;
 
   @ApiProperty()
   declare EMAIL_INVALID_EMAIL: string;
@@ -39,6 +45,9 @@ export class TranslateEntity {
 
   @ApiProperty()
   declare FAMILY_NAME_REQUIRED: string;
+
+  @ApiProperty()
+  declare GENERAL_DATA: string;
 
   @ApiProperty()
   declare GIVEN_NAME_INVALID_STRING: string;

@@ -2,6 +2,7 @@ export * from './lib/auth/auth-api.service';
 export * from './lib/auth/auth-socket.service';
 export * from './lib/auth/auth.service';
 export * from './lib/clients/client-api.service';
+export * from './lib/clients/client-form.service';
 export * from './lib/clients/clients.service';
 export * from './lib/common/animations.service';
 export * from './lib/common/dialog-full-screen.service';

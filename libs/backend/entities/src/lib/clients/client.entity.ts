@@ -38,7 +38,7 @@ export class ClientEntity extends AggregateRoot implements Client {
   @ApiProperty()
   public declare userID: string;
 
-  @Exclude()
+  @ApiProperty()
   public declare createdAt: Date;
 
   @Exclude()
@@ -73,6 +73,7 @@ export class ClientEntity extends AggregateRoot implements Client {
 
   private assign(client: Partial<ClientEntity>) {
     this.id = client.id ?? this.id;
+    this.name = client.name ?? this.name;
     this.userID = client.userID ?? this.userID;
     this.isOwner = client.isOwner ?? this.isOwner;
     this.createdAt = client.createdAt ?? this.createdAt;

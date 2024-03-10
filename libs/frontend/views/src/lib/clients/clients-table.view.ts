@@ -12,7 +12,11 @@ import { MatProgressBar } from '@angular/material/progress-bar';
 import { MatSortModule } from '@angular/material/sort';
 import { MatHeaderRow, MatRow, MatTableModule } from '@angular/material/table';
 import { Client, Paginator } from '@autronas/core/interfaces';
-import { TableBaseComponent } from '@autronas/frontend/helpers';
+import { EmptyDataTableComponent } from '@autronas/frontend/components';
+import {
+  TableBaseComponent,
+  defaultTableData,
+} from '@autronas/frontend/helpers';
 import { TranslatePipe } from '@autronas/frontend/pipes';
 import { STORE_KEYS, StoreService } from '@autronas/frontend/store';
 
@@ -48,9 +52,7 @@ import { STORE_KEYS, StoreService } from '@autronas/frontend/store';
     }
 
     @if (!data().data.length) {
-      <h3 class="no-data">
-        {{ 'NO_DATA' | translate }}
-      </h3>
+      <autronas-empty-data-table />
     }
 
     <mat-paginator [length]="data().count" [pageSizeOptions]="[5, 10, 25]" />
@@ -65,19 +67,11 @@ import { STORE_KEYS, StoreService } from '@autronas/frontend/store';
     MatRow,
     MatPaginator,
     DatePipe,
+    EmptyDataTableComponent,
   ],
   styles: `
     :host {
       display: block;
-    }
-
-    .no-data {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100%;
-
-      padding: 16px;
     }
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -89,14 +83,8 @@ export class ClientsTableView extends TableBaseComponent<Client> {
     STORE_KEYS.ALL_CLIENTS_PAGINATED,
   );
 
-  protected readonly data = computed(
-    () =>
-      this.clients().data ?? {
-        count: 0,
-        data: [],
-        hasNext: false,
-        hasPrevious: false,
-      },
+  protected readonly data = computed(() =>
+    defaultTableData(this.clients().data),
   );
 
   protected async fetchMore(data: Paginator) {
