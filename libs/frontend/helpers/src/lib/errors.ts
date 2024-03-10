@@ -8,7 +8,8 @@ export const getValidatorErrorMessage = (errors: ValidationErrors) => {
   } = {
     required: 'THIS_FIELD_IS_REQUIRED',
     email: 'INVALID_EMAIL',
-    minlength: ` MIN_LENGTH_IS_${errors?.['requiredLength']}`,
+    minlength: 'MIN_LENGTH_IS' + errors?.['requiredLength'],
+    maxlength: 'MAX_LENGTH_IS' + errors?.['requiredLength'],
     // Add more error messages here
   };
 

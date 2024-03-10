@@ -6,7 +6,7 @@ import { join } from 'path';
 export class TranslateExtractorService {
   private readonly logger = new Logger(TranslateExtractorService.name);
 
-  private readonly variableNameRegexp = '([A-Z|\\d]+(?:_[A-Z|\\d]+)*)';
+  private readonly variableNameRegexp = '(([A-Z][A-Z\\d]*)(_[A-Z\\d]+)*)';
 
   async getKeys() {
     try {
@@ -33,7 +33,7 @@ export class TranslateExtractorService {
       //new HttpException('error.invalid_date', HttpStatus.BAD_REQUEST);
       `new HttpException\\('${this.variableNameRegexp}'`,
       //message: 'error.invalid_date',
-      ` message: '${this.variableNameRegexp}' `,
+      ` message: '${this.variableNameRegexp}'`,
       // {{ 'error.invalid_date' | translate }}
       `'${this.variableNameRegexp}' \\| translate`,
       // placeholder="error.invalid_date"
@@ -50,6 +50,8 @@ export class TranslateExtractorService {
       `${this.variableNameRegexp} = '${this.variableNameRegexp}'`,
       // data?.['error.invalid_date'] || 'Next page';
       `data\\?\\.\\['${this.variableNameRegexp}'\\]`,
+      // anyKey: 'error.invalid_date'
+      `: '${this.variableNameRegexp}'`,
     ];
 
     for (const file of files) {

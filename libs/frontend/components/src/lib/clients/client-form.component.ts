@@ -35,7 +35,7 @@ import { ClientFormService } from '@autronas/frontend/services';
             <input matInput formControlName="name" />
             @if (shouldShowErrors('name')) {
               <mat-error>
-                {{ getError('name') }}
+                {{ getError('name') | translate }}
               </mat-error>
             }
           </mat-form-field>

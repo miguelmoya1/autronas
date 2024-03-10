@@ -8,6 +8,9 @@ export class TranslateEntity {
   declare ACCESS_TOKEN_REQUIRED: string;
 
   @ApiProperty()
+  declare ASC: string;
+
+  @ApiProperty()
   declare CLIENTS: string;
 
   @ApiProperty()
@@ -24,6 +27,9 @@ export class TranslateEntity {
 
   @ApiProperty()
   declare CREATE_CLIENT: string;
+
+  @ApiProperty()
+  declare DESC: string;
 
   @ApiProperty()
   declare EMAIL_INVALID_EMAIL: string;
@@ -56,6 +62,9 @@ export class TranslateEntity {
   declare GIVEN_NAME_REQUIRED: string;
 
   @ApiProperty()
+  declare HEAD: string;
+
+  @ApiProperty()
   declare ID_REQUIRED: string;
 
   @ApiProperty()
@@ -72,6 +81,9 @@ export class TranslateEntity {
 
   @ApiProperty()
   declare IMAGE_URL_REQUIRED: string;
+
+  @ApiProperty()
+  declare INVALID_EMAIL: string;
 
   @ApiProperty()
   declare INVALID_GAME_ID: string;
@@ -101,10 +113,16 @@ export class TranslateEntity {
   declare MAX_50: string;
 
   @ApiProperty()
+  declare MAX_LENGTH_IS: string;
+
+  @ApiProperty()
   declare MIN_0: string;
 
   @ApiProperty()
   declare MIN_1: string;
+
+  @ApiProperty()
+  declare MIN_LENGTH_IS: string;
 
   @ApiProperty()
   declare NAME: string;
@@ -120,6 +138,9 @@ export class TranslateEntity {
 
   @ApiProperty()
   declare REQUIRED: string;
+
+  @ApiProperty()
+  declare THIS_FIELD_IS_REQUIRED: string;
 
   @ApiProperty()
   declare UNAUTHORIZED: string;

@@ -6,6 +6,7 @@ import {
   inject,
   signal,
 } from '@angular/core';
+import { MatCard, MatCardContent } from '@angular/material/card';
 import { MatIcon } from '@angular/material/icon';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatProgressBar } from '@angular/material/progress-bar';
@@ -24,38 +25,45 @@ import { STORE_KEYS, StoreService } from '@autronas/frontend/store';
   selector: 'autronas-clients-table-view',
   standalone: true,
   template: `
-    <mat-table #table [dataSource]="dataSource" matSort>
-      <ng-container matColumnDef="name">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>
-          {{ 'NAME' | translate }}
-        </mat-header-cell>
+    <mat-card appearance="outlined">
+      <mat-card-content>
+        <mat-table #table [dataSource]="dataSource" matSort>
+          <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>
+              {{ 'NAME' | translate }}
+            </mat-header-cell>
 
-        <mat-cell *matCellDef="let element"> {{ element.name }} </mat-cell>
-      </ng-container>
+            <mat-cell *matCellDef="let element"> {{ element.name }} </mat-cell>
+          </ng-container>
 
-      <ng-container matColumnDef="createdAt">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>
-          {{ 'CREATED_AT' | translate }}
-        </mat-header-cell>
+          <ng-container matColumnDef="createdAt">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>
+              {{ 'CREATED_AT' | translate }}
+            </mat-header-cell>
 
-        <mat-cell *matCellDef="let element">
-          {{ element.createdAt | date: 'dd/MM/yyyy' }}
-        </mat-cell>
-      </ng-container>
+            <mat-cell *matCellDef="let element">
+              {{ element.createdAt | date: 'dd/MM/yyyy' }}
+            </mat-cell>
+          </ng-container>
 
-      <mat-header-row *matHeaderRowDef="headers()" />
-      <mat-row *matRowDef="let row; columns: headers()" />
-    </mat-table>
+          <mat-header-row *matHeaderRowDef="headers()" />
+          <mat-row *matRowDef="let row; columns: headers()" />
+        </mat-table>
 
-    @if (clients().loading) {
-      <mat-progress-bar mode="indeterminate" />
-    }
+        @if (clients().loading) {
+          <mat-progress-bar mode="indeterminate" />
+        }
 
-    @if (!data().data.length) {
-      <autronas-empty-data-table />
-    }
+        @if (!data().data.length) {
+          <autronas-empty-data-table />
+        }
 
-    <mat-paginator [length]="data().count" [pageSizeOptions]="[5, 10, 25]" />
+        <mat-paginator
+          [length]="data().count"
+          [pageSizeOptions]="[5, 10, 25]"
+        />
+      </mat-card-content>
+    </mat-card>
   `,
   imports: [
     MatTableModule,
@@ -68,6 +76,8 @@ import { STORE_KEYS, StoreService } from '@autronas/frontend/store';
     MatPaginator,
     DatePipe,
     EmptyDataTableComponent,
+    MatCard,
+    MatCardContent,
   ],
   styles: `
     :host {
