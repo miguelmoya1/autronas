@@ -30,10 +30,7 @@ export class LoginGoogleHandler implements ICommandHandler<LoginGoogleCommand> {
     }
 
     if (!userDB) {
-      throw new HttpException(
-        'CANNOT_CREATE_USER',
-        HttpStatus.INTERNAL_SERVER_ERROR,
-      );
+      throw new HttpException('CANNOT_CREATE_USER', HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
     return { token: this.authService.sign(userDB) };

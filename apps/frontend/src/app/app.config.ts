@@ -8,15 +8,11 @@ import {
 } from '@angular/core';
 import { MatPaginatorIntl } from '@angular/material/paginator';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import {
-  Router,
-  provideRouter,
-  withComponentInputBinding,
-  withInMemoryScrolling,
-} from '@angular/router';
+import { Router, provideRouter, withComponentInputBinding, withInMemoryScrolling } from '@angular/router';
 import { server_url, token_name } from '@autronas/frontend/helpers';
 import {
   authInterceptor,
+  errorsInterceptor,
   headersInterceptor,
   loggerInterceptor,
 } from '@autronas/frontend/interceptors';
@@ -40,19 +36,9 @@ const socketConfig: SocketIoConfig = {
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideRouter(
-      appRoutes,
-      withComponentInputBinding(),
-      withInMemoryScrolling(),
-    ),
+    provideRouter(appRoutes, withComponentInputBinding(), withInMemoryScrolling()),
     provideAnimationsAsync(),
-    provideHttpClient(
-      withInterceptors([
-        loggerInterceptor,
-        headersInterceptor,
-        authInterceptor,
-      ]),
-    ),
+    provideHttpClient(withInterceptors([loggerInterceptor, headersInterceptor, authInterceptor, errorsInterceptor])),
     provideZoneChangeDetection({ eventCoalescing: true }),
     importProvidersFrom(SocketIoModule.forRoot(socketConfig)),
     {

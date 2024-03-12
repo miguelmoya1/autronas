@@ -6,10 +6,7 @@ import { AnimationsService } from './animations.service';
 import { ClassProperties } from './types/class-properties';
 
 export abstract class OverlayService {
-  public abstract open(
-    _: unknown,
-    __: unknown,
-  ): ReturnType<typeof this.present>;
+  public abstract open(_: unknown, __: unknown): ReturnType<typeof this.present>;
   public readonly isOpen = signal(false);
 
   protected abstract readonly config: OverlayConfig;
@@ -39,10 +36,7 @@ export abstract class OverlayService {
     let background: Promise<void> | null = null;
 
     if (overlayRef.backdropElement) {
-      background = this.animationService.disappear(
-        overlayRef.backdropElement,
-        400,
-      );
+      background = this.animationService.disappear(overlayRef.backdropElement, 400);
     }
     await Promise.all([overlay, background]);
 
@@ -69,20 +63,16 @@ export abstract class OverlayService {
 
     const overlayRef = this.overlay.create(this.config);
     const componentRef = overlayRef.attach(new ComponentPortal(component));
-    const backdropClickSubscription = overlayRef
-      .backdropClick()
-      .subscribe(async () => {
-        const canClose = beforeClose ? await beforeClose() : true;
+    const backdropClickSubscription = overlayRef.backdropClick().subscribe(async () => {
+      const canClose = beforeClose ? await beforeClose() : true;
 
-        if (canClose) {
-          await this.hide();
-        }
-      });
+      if (canClose) {
+        await this.hide();
+      }
+    });
 
     if (value) {
-      Object.keys(value).forEach((key) =>
-        componentRef.setInput(key, value[key as keyof typeof value]),
-      );
+      Object.keys(value).forEach((key) => componentRef.setInput(key, value[key as keyof typeof value]));
     }
 
     this.ref = { overlayRef, componentRef, backdropClickSubscription };

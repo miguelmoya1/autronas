@@ -1,9 +1,4 @@
-import {
-  HttpHandlerFn,
-  HttpParams,
-  HttpRequest,
-  HttpResponse,
-} from '@angular/common/http';
+import { HttpInterceptorFn, HttpParams, HttpResponse } from '@angular/common/http';
 import { isDevMode } from '@angular/core';
 import { server_url } from '@autronas/frontend/helpers';
 import { catchError, tap } from 'rxjs';
@@ -41,33 +36,18 @@ const log = ({
   );
 
   if (params && params.keys().length) {
-    console.log(
-      '%cPARAMS',
-      'color: orange; font-weight: bold; font-size: .95rem;',
-      params.toString() || '',
-    );
+    console.log('%cPARAMS', 'color: orange; font-weight: bold; font-size: .95rem;', params.toString() || '');
   }
 
   if (variables && Object.keys(variables).length) {
-    console.log(
-      '%cREQUEST',
-      'color: yellow; font-weight: bold; font-size: .95rem;',
-      variables || '',
-    );
+    console.log('%cREQUEST', 'color: yellow; font-weight: bold; font-size: .95rem;', variables || '');
   }
 
-  console.log(
-    '%cRESPONSE',
-    'color: dodgerblue; font-weight: bold; font-size: .95rem;',
-    data || '',
-  );
+  console.log('%cRESPONSE', 'color: dodgerblue; font-weight: bold; font-size: .95rem;', data || '');
   console.groupEnd();
 };
 
-export const loggerInterceptor = (
-  request: HttpRequest<unknown>,
-  next: HttpHandlerFn,
-) => {
+export const loggerInterceptor: HttpInterceptorFn = (request, next) => {
   if (!isDevMode()) {
     return next(request);
   }

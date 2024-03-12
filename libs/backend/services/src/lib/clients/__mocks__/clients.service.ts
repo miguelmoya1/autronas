@@ -3,29 +3,23 @@ import { ClientEntity } from '@autronas/backend/entities';
 import { clientMock } from '@autronas/backend/testing';
 
 export class ClientsService {
-  readonly getMy = jest
-    .fn()
-    .mockImplementation(async (id: ClientEntity['id']) => {
-      return new ClientEntity({ ...clientMock, id }, { ...clientMock, id });
-    });
+  readonly getMy = jest.fn().mockImplementation(async (id: ClientEntity['id']) => {
+    return new ClientEntity({ ...clientMock, id }, { ...clientMock, id });
+  });
 
-  readonly update = jest
-    .fn()
-    .mockImplementation(async (client: ClientUpdateDTO, clientID: string) => {
-      if (client.name === 'error' || clientID === 'error') {
-        return null;
-      }
+  readonly update = jest.fn().mockImplementation(async (client: ClientUpdateDTO, clientID: string) => {
+    if (client.name === 'error' || clientID === 'error') {
+      return null;
+    }
 
-      return client;
-    });
+    return client;
+  });
 
-  readonly create = jest
-    .fn()
-    .mockImplementation(async (client: ClientCreateDTO) => {
-      if (client.name === 'error') {
-        return null;
-      }
+  readonly create = jest.fn().mockImplementation(async (client: ClientCreateDTO) => {
+    if (client.name === 'error') {
+      return null;
+    }
 
-      return client;
-    });
+    return client;
+  });
 }

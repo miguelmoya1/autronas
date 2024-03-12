@@ -1,8 +1,5 @@
 import { TranslateEntity } from '@autronas/backend/entities';
-import {
-  TranslateGetAvailableQuery,
-  TranslateGetQuery,
-} from '@autronas/backend/queries';
+import { TranslateGetAvailableQuery, TranslateGetQuery } from '@autronas/backend/queries';
 import { Controller, Get, Param, Req } from '@nestjs/common';
 import { QueryBus } from '@nestjs/cqrs';
 import { ApiOkResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
@@ -43,10 +40,7 @@ export class TranslateController {
     description: 'Get the translations for a specific language',
   })
   @ApiOkResponse({ type: TranslateEntity })
-  async getLanguage(
-    @Req() request?: Request,
-    @Param('language') language?: string,
-  ) {
+  async getLanguage(@Req() request?: Request, @Param('language') language?: string) {
     const command = new TranslateGetQuery(request, language);
 
     return await this.queryBuss.execute(command);

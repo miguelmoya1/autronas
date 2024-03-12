@@ -21,13 +21,11 @@ export class UserSocketService {
   private subscribeToGameUpdates() {
     this.unsubscribeFromGameUpdates();
 
-    this._subscription = this._socket
-      .fromEvent<ShouldRefresh>(Events.USER)
-      .subscribe((response) => {
-        if (response.user) {
-          this._userUpdated.next();
-        }
-      });
+    this._subscription = this._socket.fromEvent<ShouldRefresh>(Events.USER).subscribe((response) => {
+      if (response.user) {
+        this._userUpdated.next();
+      }
+    });
   }
 
   private unsubscribeFromGameUpdates() {

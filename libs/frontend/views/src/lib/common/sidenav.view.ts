@@ -1,15 +1,6 @@
 import { NgClass } from '@angular/common';
-import {
-  ChangeDetectionStrategy,
-  Component,
-  inject,
-  signal,
-} from '@angular/core';
-import {
-  MatDrawer,
-  MatDrawerContainer,
-  MatDrawerContent,
-} from '@angular/material/sidenav';
+import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
+import { MatDrawer, MatDrawerContainer, MatDrawerContent } from '@angular/material/sidenav';
 import { MatTooltip } from '@angular/material/tooltip';
 import { SidenavButtonComponent } from '@autronas/frontend/components';
 import { TranslatePipe } from '@autronas/frontend/pipes';

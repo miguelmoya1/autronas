@@ -1,17 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
-import {
-  Client,
-  ClientCreateInput,
-  ClientUpdateInput,
-  Paginated,
-  Paginator,
-} from '@autronas/core/interfaces';
-import {
-  ApiErrorResponse,
-  ApiOkResponse,
-  DataFromApi,
-} from '@autronas/frontend/shared';
+import { Client, ClientCreateInput, ClientUpdateInput, Paginated, Paginator } from '@autronas/core/interfaces';
+import { ApiErrorResponse, ApiOkResponse, DataFromApi } from '@autronas/frontend/shared';
 import { catchError, firstValueFrom, map, of } from 'rxjs';
 
 @Injectable({

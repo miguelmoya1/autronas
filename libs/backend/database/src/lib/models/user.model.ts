@@ -60,35 +60,14 @@ export class UserModel extends Model<User> {
   @HasMany(() => ClientModel, 'userID')
   declare clients?: ClientModel[];
   declare getClients?: HasManyGetAssociationsMixin<ClientModel>;
-  declare setClients?: HasManySetAssociationsMixin<
-    ClientModel,
-    ClientModel['id']
-  >;
-  declare addClients?: HasManyAddAssociationsMixin<
-    ClientModel,
-    ClientModel['id']
-  >;
-  declare addClient?: HasManyAddAssociationsMixin<
-    ClientModel,
-    ClientModel['id']
-  >;
+  declare setClients?: HasManySetAssociationsMixin<ClientModel, ClientModel['id']>;
+  declare addClients?: HasManyAddAssociationsMixin<ClientModel, ClientModel['id']>;
+  declare addClient?: HasManyAddAssociationsMixin<ClientModel, ClientModel['id']>;
   declare createClient?: HasManyCreateAssociationMixin<ClientModel>;
-  declare removeClient?: HasManyRemoveAssociationMixin<
-    ClientModel,
-    ClientModel['id']
-  >;
-  declare removeClients?: HasManyRemoveAssociationMixin<
-    ClientModel,
-    ClientModel['id']
-  >;
-  declare hasClient?: HasManyHasAssociationMixin<
-    ClientModel,
-    ClientModel['id']
-  >;
-  declare hasClients?: HasManyHasAssociationsMixin<
-    ClientModel,
-    ClientModel['id']
-  >;
+  declare removeClient?: HasManyRemoveAssociationMixin<ClientModel, ClientModel['id']>;
+  declare removeClients?: HasManyRemoveAssociationMixin<ClientModel, ClientModel['id']>;
+  declare hasClient?: HasManyHasAssociationMixin<ClientModel, ClientModel['id']>;
+  declare hasClients?: HasManyHasAssociationsMixin<ClientModel, ClientModel['id']>;
   declare countClients?: HasManyCountAssociationsMixin;
 
   static get baseOptions(): FindOptions<UserModel> {

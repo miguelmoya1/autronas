@@ -30,6 +30,21 @@ export class ClientEntity extends AggregateRoot implements Client {
   public declare name: string;
 
   @ApiProperty()
+  public declare surname: string;
+
+  @ApiProperty()
+  public declare email: string;
+
+  @ApiProperty()
+  public declare personalID: string;
+
+  @ApiProperty()
+  public declare phoneNumber: string;
+
+  @ApiProperty()
+  public declare isBusiness: boolean;
+
+  @ApiProperty()
   public declare isOwner: boolean;
 
   @ApiProperty()
@@ -74,6 +89,12 @@ export class ClientEntity extends AggregateRoot implements Client {
   private assign(client: Partial<ClientEntity>) {
     this.id = client.id ?? this.id;
     this.name = client.name ?? this.name;
+    this.surname = client.surname ?? this.surname;
+    this.email = client.email ?? this.email;
+    this.personalID = client.personalID ?? this.personalID;
+    this.phoneNumber = client.phoneNumber ?? this.phoneNumber;
+    this.isBusiness = client.isBusiness ?? this.isBusiness;
+
     this.userID = client.userID ?? this.userID;
     this.isOwner = client.isOwner ?? this.isOwner;
     this.createdAt = client.createdAt ?? this.createdAt;

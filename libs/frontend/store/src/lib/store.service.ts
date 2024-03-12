@@ -6,10 +6,7 @@ import { STORE_KEYS, Store } from './tools';
   providedIn: 'root',
 })
 export class StoreService {
-  private readonly _store = new Map<
-    keyof Store,
-    WritableSignal<Store[keyof Store]>
-  >();
+  private readonly _store = new Map<keyof Store, WritableSignal<Store[keyof Store]>>();
 
   constructor() {
     this.setDefaultValues();
@@ -39,23 +36,20 @@ export class StoreService {
     this._store.set(STORE_KEYS.SOCKET_CONNECTED, signal(false));
 
     this._store.set(STORE_KEYS.TRANSLATE, signal(defaultDataLoading()));
-    this._store.set(
-      STORE_KEYS.AVAILABLE_LANGUAGES,
-      signal(defaultDataLoading()),
-    );
+    this._store.set(STORE_KEYS.AVAILABLE_LANGUAGES, signal(defaultDataLoading()));
 
     this._store.set(STORE_KEYS.TOKEN, signal(null));
     this._store.set(STORE_KEYS.IS_LOGGED, signal(false));
     this._store.set(STORE_KEYS.IS_LOGGED_LOADING, signal(true));
 
     this._store.set(STORE_KEYS.CURRENT_USER, signal(defaultDataLoading()));
+
+    this._store.set(STORE_KEYS.ALL_CLIENTS_PAGINATED, signal(defaultDataLoading()));
+    this._store.set(STORE_KEYS.CLIENTS_PAGINATOR, signal({ offset: 0, limit: 10 }));
+    this._store.set(STORE_KEYS.CLIENTS_NEED_REFRESH, signal(false));
     this._store.set(
-      STORE_KEYS.ALL_CLIENTS_PAGINATED,
-      signal(defaultDataLoading()),
-    );
-    this._store.set(
-      STORE_KEYS.CLIENTS_PAGINATOR,
-      signal({ offset: 0, limit: 10 }),
+      STORE_KEYS.CLIENT_TABLE_HEADERS,
+      signal(['name', 'surname', 'email', 'personalID', 'isBusiness', 'phoneNumber', 'createdAt']),
     );
   }
 }

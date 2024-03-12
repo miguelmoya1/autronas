@@ -14,11 +14,9 @@ export class MatPaginatorIntlService extends MatPaginatorIntl {
     effect(() => {
       const translate = this._store.get(STORE_KEYS.TRANSLATE)();
 
-      this.itemsPerPageLabel =
-        translate.data?.['ITEMS_PER_PAGE'] || 'Items per page:';
+      this.itemsPerPageLabel = translate.data?.['ITEMS_PER_PAGE'] || 'Items per page:';
       this.nextPageLabel = translate.data?.['NEXT_PAGE'] || 'Next page';
-      this.previousPageLabel =
-        translate.data?.['PREVIOUS_PAGE'] || 'Previous page';
+      this.previousPageLabel = translate.data?.['PREVIOUS_PAGE'] || 'Previous page';
       this.changes.next();
     });
   }
@@ -29,10 +27,7 @@ export class MatPaginatorIntlService extends MatPaginatorIntl {
     }
     length = Math.max(length, 0);
     const startIndex = page * pageSize;
-    const endIndex =
-      startIndex < length
-        ? Math.min(startIndex + pageSize, length)
-        : startIndex + pageSize;
+    const endIndex = startIndex < length ? Math.min(startIndex + pageSize, length) : startIndex + pageSize;
     return `${startIndex + 1} - ${endIndex} / ${length}`;
   };
 }

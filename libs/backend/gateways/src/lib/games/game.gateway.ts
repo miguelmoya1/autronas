@@ -1,12 +1,6 @@
 import { ShouldRefresh } from '@autronas/core/interfaces';
 import { HttpException, HttpStatus, Logger } from '@nestjs/common';
-import {
-  ConnectedSocket,
-  MessageBody,
-  SubscribeMessage,
-  WebSocketGateway,
-  WebSocketServer,
-} from '@nestjs/websockets';
+import { ConnectedSocket, MessageBody, SubscribeMessage, WebSocketGateway, WebSocketServer } from '@nestjs/websockets';
 import { of } from 'rxjs';
 import { Server, Socket } from 'socket.io';
 

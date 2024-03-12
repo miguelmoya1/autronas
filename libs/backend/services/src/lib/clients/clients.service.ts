@@ -1,9 +1,5 @@
 import { ClientModel } from '@autronas/backend/database';
-import {
-  ClientCreateDTO,
-  ClientUpdateDTO,
-  PaginatorDTO,
-} from '@autronas/backend/dto';
+import { ClientCreateDTO, ClientUpdateDTO, PaginatorDTO } from '@autronas/backend/dto';
 import { ClientEntity, UserEntity } from '@autronas/backend/entities';
 import { Injectable, Logger } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
@@ -13,15 +9,12 @@ import { Order } from 'sequelize';
 export class ClientsService {
   private readonly logger = new Logger(ClientsService.name);
 
-  constructor(
-    @InjectModel(ClientModel) private readonly clientModel: typeof ClientModel,
-  ) {}
+  constructor(@InjectModel(ClientModel) private readonly clientModel: typeof ClientModel) {}
 
   public async getMy(paginator: PaginatorDTO, user: UserEntity) {
     const { limit, offset, sort, direction } = paginator;
 
-    const order: Order | undefined =
-      sort && direction ? [[sort, direction]] : undefined;
+    const order: Order | undefined = sort && direction ? [[sort, direction]] : undefined;
 
     const clientDB = await this.clientModel.findAndCountAll({
       ...ClientModel.baseOptions,
@@ -43,21 +36,16 @@ export class ClientsService {
     return {
       hasNext: paginator.offset + paginator.limit < clientDB.count,
       hasPrevious: paginator.offset > 0,
-      data: clientDB.rows.map(
-        (client) => new ClientEntity(client.toJSON(), user),
-      ),
+      data: clientDB.rows.map((client) => new ClientEntity(client.toJSON(), user)),
       count: clientDB.count,
     };
   }
 
   public async create(client: ClientCreateDTO, user: UserEntity) {
     const { id } = user;
-    const { name } = client;
-
-    this.logger.debug('Creating client... ', client.name);
 
     const clientDB = await this.clientModel.create({
-      name,
+      ...client,
       userID: id,
     });
 
@@ -68,18 +56,14 @@ export class ClientsService {
     return new ClientEntity(clientDB.toJSON(), user);
   }
 
-  public async update(
-    client: ClientUpdateDTO,
-    clientID: string,
-    user: UserEntity,
-  ) {
+  public async update(client: ClientUpdateDTO, clientID: string, user: UserEntity) {
     const { id } = user;
-    const { name } = client;
-
-    this.logger.debug('Updating client... ', clientID);
 
     const clientDB = await this.clientModel.update(
-      { id: clientID, name },
+      {
+        ...client,
+        id: clientID,
+      },
       { where: { id }, returning: true },
     );
 

@@ -13,10 +13,7 @@ describe('ClientCreateHandler', () => {
   let clientsService: ClientsService;
 
   const command = new ClientCreateCommand({ name: 'name' }, {} as UserEntity);
-  const commandError = new ClientCreateCommand(
-    { name: 'error' },
-    {} as UserEntity,
-  );
+  const commandError = new ClientCreateCommand({ name: 'error' }, {} as UserEntity);
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({

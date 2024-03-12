@@ -22,9 +22,7 @@ export class TranslateService {
       this._store.set(STORE_KEYS.TRANSLATE, defaultDataLoading());
       this._lastLanguage = language;
 
-      const localTranslate = await this._translateAPI.getLocale(
-        language || 'en',
-      );
+      const localTranslate = await this._translateAPI.getLocale(language || 'en');
       const serverTranslates = await this._translateAPI.get(language || 'en');
 
       if (serverTranslates.serialize().error) {

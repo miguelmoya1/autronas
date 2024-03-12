@@ -15,13 +15,7 @@ import { STORE_KEYS, StoreService } from '@autronas/frontend/store';
     @if (isLogged()) {
       @if (currentUser().data; as user) {
         <div class="profile" [matMenuTriggerFor]="menu">
-          <img
-            ngSrc="{{ user.imageUrl }}"
-            alt="{{ user.name }}"
-            class="avatar"
-            width="40"
-            height="40"
-          />
+          <img ngSrc="{{ user.imageUrl }}" alt="{{ user.name }}" class="avatar" width="40" height="40" />
         </div>
 
         <mat-menu #menu="matMenu">

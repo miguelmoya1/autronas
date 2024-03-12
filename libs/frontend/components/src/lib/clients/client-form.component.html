@@ -1,0 +1,59 @@
+<mat-card appearance="outlined">
+  <mat-card-header>
+    <mat-card-title>{{ 'GENERAL_DATA' | translate }}</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <form [formGroup]="form" class="form-container">
+      <mat-form-field>
+        <mat-label>{{ 'NAME' | translate }}</mat-label>
+        <input matInput formControlName="name" />
+        @if (shouldShowErrors('name')) {
+          <mat-error>
+            {{ getError('name') | translate }}
+          </mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>{{ 'SURNAME' | translate }}</mat-label>
+        <input matInput formControlName="surname" />
+        @if (shouldShowErrors('surname')) {
+          <mat-error>
+            {{ getError('surname') | translate }}
+          </mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>{{ 'EMAIL' | translate }}</mat-label>
+        <input matInput formControlName="email" />
+        @if (shouldShowErrors('email')) {
+          <mat-error>
+            {{ getError('email') | translate }}
+          </mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>{{ 'DNI_NIF_NIE' | translate }}</mat-label>
+        <input matInput formControlName="personalID" />
+        @if (shouldShowErrors('personalID')) {
+          <mat-error>
+            {{ getError('personalID') | translate }}
+          </mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>{{ 'PHONE' | translate }}</mat-label>
+        <input matInput formControlName="phoneNumber" />
+        @if (shouldShowErrors('phoneNumber')) {
+          <mat-error>
+            {{ getError('phoneNumber') | translate }}
+          </mat-error>
+        }
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+</mat-card>

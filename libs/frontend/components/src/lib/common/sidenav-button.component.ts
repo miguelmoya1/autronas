@@ -8,14 +8,7 @@ import { TranslatePipe } from '@autronas/frontend/pipes';
 @Component({
   selector: 'autronas-sidenav-button',
   standalone: true,
-  imports: [
-    MatIcon,
-    TranslatePipe,
-    RouterLink,
-    MatButton,
-    MatIconButton,
-    MatTooltip,
-  ],
+  imports: [MatIcon, TranslatePipe, RouterLink, MatButton, MatIconButton, MatTooltip],
   template: `
     <div class="nav_item" [routerLink]="routerLink()">
       @if (open() && label()) {

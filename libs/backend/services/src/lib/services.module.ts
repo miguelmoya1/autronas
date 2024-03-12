@@ -31,12 +31,6 @@ import { UsersService } from './users/users.service';
     TranslateExtractorService,
     UsersService,
   ],
-  exports: [
-    AuthService,
-    ClientsService,
-    DatabaseService,
-    TranslateService,
-    UsersService,
-  ],
+  exports: [AuthService, ClientsService, DatabaseService, TranslateService, UsersService],
 })
 export class ServicesModule {}

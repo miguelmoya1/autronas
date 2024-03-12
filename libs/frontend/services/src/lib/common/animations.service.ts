@@ -35,7 +35,9 @@ export class AnimationsService {
   }
 
   public async disappearToRight(element: HTMLElement, time = 200) {
-    const animation = this.animationBuilder.build([animate(`${time}ms ease-in-out`, style({ opacity: 0, transform: 'translateX(100%)' }))]);
+    const animation = this.animationBuilder.build([
+      animate(`${time}ms ease-in-out`, style({ opacity: 0, transform: 'translateX(100%)' })),
+    ]);
 
     await this.playAnimation(animation, element);
   }

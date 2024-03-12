@@ -8,9 +8,7 @@ import { InjectModel } from '@nestjs/sequelize';
 export class UsersService {
   private readonly logger = new Logger(UsersService.name);
 
-  constructor(
-    @InjectModel(UserModel) private readonly userModel: typeof UserModel,
-  ) {}
+  constructor(@InjectModel(UserModel) private readonly userModel: typeof UserModel) {}
 
   public async get(userID: UserEntity['id'], user: UserEntity) {
     const userDB = await this.userModel.findOne({
@@ -58,13 +56,7 @@ export class UsersService {
   }
 
   public async createByGoogle(user: GoogleLogin) {
-    const {
-      email,
-      givenName: name,
-      familyName: surname,
-      idToken: googleToken,
-      imageUrl,
-    } = user;
+    const { email, givenName: name, familyName: surname, idToken: googleToken, imageUrl } = user;
 
     await this.userModel.create({
       email,

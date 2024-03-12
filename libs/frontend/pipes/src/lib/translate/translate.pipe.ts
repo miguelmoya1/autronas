@@ -13,17 +13,11 @@ export class TranslatePipe implements PipeTransform {
     return this.translate(value, params) ?? value;
   }
 
-  public translate(
-    value: string,
-    params?: { [key: string]: string | number | boolean },
-  ) {
+  public translate(value: string, params?: { [key: string]: string | number | boolean }) {
     return (
       this._store
         .get(STORE_KEYS.TRANSLATE)()
-        .data?.[value]?.replace(
-          /{{\s*([a-zA-Z0-9]+)\s*}}/g,
-          (match, key) => `${params?.[key]}` ?? match,
-        ) || value
+        .data?.[value]?.replace(/{{\s*([a-zA-Z0-9]+)\s*}}/g, (match, key) => `${params?.[key]}` ?? match) || value
     );
   }
 }

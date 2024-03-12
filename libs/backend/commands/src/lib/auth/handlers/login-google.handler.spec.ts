@@ -21,8 +21,7 @@ describe('LoginGoogleHandler', () => {
       providers: [LoginGoogleHandler, AuthService, UsersService],
     }).compile();
 
-    userCreateForGameHandler =
-      module.get<LoginGoogleHandler>(LoginGoogleHandler);
+    userCreateForGameHandler = module.get<LoginGoogleHandler>(LoginGoogleHandler);
     authService = module.get(AuthService);
 
     jest.clearAllMocks();

@@ -8,7 +8,9 @@ import { ClientApiService } from '@autronas/frontend/services';
 export class ClientsDtoService {
   private readonly _authApiService = inject(ClientApiService);
 
-  public create(client: ClientCreateInput) {
-    return this._authApiService.create(client);
+  public async create(client: ClientCreateInput) {
+    const response = await this._authApiService.create(client);
+
+    return response.isOk();
   }
 }

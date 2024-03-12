@@ -57,9 +57,7 @@ export class TranslateExtractorService {
     for (const file of files) {
       const content = await readFile(join(folder, file), 'utf8');
 
-      const results = regexps.flatMap((regexp) =>
-        this.extractKeys(content, new RegExp(regexp, 'g')),
-      );
+      const results = regexps.flatMap((regexp) => this.extractKeys(content, new RegExp(regexp, 'g')));
 
       strings.push(...results);
     }

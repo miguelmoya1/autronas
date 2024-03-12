@@ -4,9 +4,7 @@ import { CommandHandler, EventPublisher, ICommandHandler } from '@nestjs/cqrs';
 import { ClientUpdateCommand } from '../impl/client-update.command';
 
 @CommandHandler(ClientUpdateCommand)
-export class ClientUpdateHandler
-  implements ICommandHandler<ClientUpdateCommand>
-{
+export class ClientUpdateHandler implements ICommandHandler<ClientUpdateCommand> {
   private readonly logger = new Logger(ClientUpdateHandler.name);
 
   constructor(

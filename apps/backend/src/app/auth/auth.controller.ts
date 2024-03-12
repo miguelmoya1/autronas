@@ -1,20 +1,11 @@
 import { LoginGoogleCommand } from '@autronas/backend/commands';
 import { CurrentUser } from '@autronas/backend/decorators';
-import {
-  AuthResponseEntity,
-  GoogleLoginEntity,
-  UserEntity,
-} from '@autronas/backend/entities';
+import { AuthResponseEntity, GoogleLoginEntity, UserEntity } from '@autronas/backend/entities';
 import { JwtAuthGuard } from '@autronas/backend/guards';
 import { AuthRehydrateQuery } from '@autronas/backend/queries';
 import { Body, Controller, Get, Post, UseGuards } from '@nestjs/common';
 import { CommandBus, QueryBus } from '@nestjs/cqrs';
-import {
-  ApiBearerAuth,
-  ApiOkResponse,
-  ApiOperation,
-  ApiTags,
-} from '@nestjs/swagger';
+import { ApiBearerAuth, ApiOkResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
 
 @Controller('auth')
 @ApiTags('Auth')

@@ -1,11 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  OnInit,
-  effect,
-  inject,
-  untracked,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, effect, inject, untracked } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { AuthDtoService } from '@autronas/frontend/actions';
 import { STORE_KEYS, StoreService } from '@autronas/frontend/store';
@@ -54,11 +47,9 @@ export class AppPage implements OnInit {
 
   private setTheme() {
     // when the user change the theme, we update the body class (with prefer-color-scheme)
-    window
-      .matchMedia('(prefers-color-scheme: light)')
-      .addEventListener('change', (e) => {
-        this.toggleClass(e);
-      });
+    window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', (e) => {
+      this.toggleClass(e);
+    });
 
     // set the initial theme
     this.toggleClass(window.matchMedia('(prefers-color-scheme: light)'));

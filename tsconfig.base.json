@@ -32,14 +32,10 @@
       "@autronas/core/enums": ["libs/core/enums/src/index.ts"],
       "@autronas/core/interfaces": ["libs/core/interfaces/src/index.ts"],
       "@autronas/frontend/actions": ["libs/frontend/actions/src/index.ts"],
-      "@autronas/frontend/components": [
-        "libs/frontend/components/src/index.ts"
-      ],
+      "@autronas/frontend/components": ["libs/frontend/components/src/index.ts"],
       "@autronas/frontend/guards": ["libs/frontend/guards/src/index.ts"],
       "@autronas/frontend/helpers": ["libs/frontend/helpers/src/index.ts"],
-      "@autronas/frontend/interceptors": [
-        "libs/frontend/interceptors/src/index.ts"
-      ],
+      "@autronas/frontend/interceptors": ["libs/frontend/interceptors/src/index.ts"],
       "@autronas/frontend/pipes": ["libs/frontend/pipes/src/index.ts"],
       "@autronas/frontend/resolvers": ["libs/frontend/resolvers/src/index.ts"],
       "@autronas/frontend/services": ["libs/frontend/services/src/index.ts"],

@@ -1,10 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
-import {
-  ApiErrorResponse,
-  ApiOkResponse,
-  DataFromApi,
-} from '@autronas/frontend/shared';
+import { ApiErrorResponse, ApiOkResponse, DataFromApi } from '@autronas/frontend/shared';
 import { User } from '@autronas/core/interfaces';
 import { catchError, firstValueFrom, map, of } from 'rxjs';
 

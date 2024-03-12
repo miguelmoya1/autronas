@@ -11,13 +11,52 @@ export class TranslateEntity {
   declare ASC: string;
 
   @ApiProperty()
+  declare CANNOT_CREATE_USER: string;
+
+  @ApiProperty()
   declare CLIENTS: string;
+
+  @ApiProperty()
+  declare CLIENT_CREATED: string;
+
+  @ApiProperty()
+  declare CLIENT_EMAIL_INVALID_EMAIL: string;
+
+  @ApiProperty()
+  declare CLIENT_EMAIL_REQUIRED: string;
+
+  @ApiProperty()
+  declare CLIENT_IS_BUSINESS_INVALID_BOOLEAN: string;
+
+  @ApiProperty()
+  declare CLIENT_IS_BUSINESS_REQUIRED: string;
 
   @ApiProperty()
   declare CLIENT_NAME_INVALID_STRING: string;
 
   @ApiProperty()
   declare CLIENT_NAME_REQUIRED: string;
+
+  @ApiProperty()
+  declare CLIENT_PERSONAL_ID_INVALID_STRING: string;
+
+  @ApiProperty()
+  declare CLIENT_PERSONAL_ID_REQUIRED: string;
+
+  @ApiProperty()
+  declare CLIENT_PHONE_NUMBER_INVALID_FORMAT: string;
+
+  @ApiProperty()
+  declare CLIENT_PHONE_NUMBER_INVALID_STRING: string;
+
+  @ApiProperty()
+  declare CLIENT_SURNAME_INVALID_STRING: string;
+
+  @ApiProperty()
+  declare CLIENT_SURNAME_REQUIRED: string;
+
+  @ApiProperty()
+  declare CLOSE: string;
 
   @ApiProperty()
   declare CREATE: string;
@@ -30,6 +69,9 @@ export class TranslateEntity {
 
   @ApiProperty()
   declare DESC: string;
+
+  @ApiProperty()
+  declare EMAIL: string;
 
   @ApiProperty()
   declare EMAIL_INVALID_EMAIL: string;
@@ -51,9 +93,6 @@ export class TranslateEntity {
 
   @ApiProperty()
   declare FAMILY_NAME_REQUIRED: string;
-
-  @ApiProperty()
-  declare GENERAL_DATA: string;
 
   @ApiProperty()
   declare GIVEN_NAME_INVALID_STRING: string;
@@ -134,10 +173,19 @@ export class TranslateEntity {
   declare NO_DATA: string;
 
   @ApiProperty()
+  declare PERSONAL_ID: string;
+
+  @ApiProperty()
+  declare PHONE_NUMBER: string;
+
+  @ApiProperty()
   declare PREVIOUS_PAGE: string;
 
   @ApiProperty()
   declare REQUIRED: string;
+
+  @ApiProperty()
+  declare SURNAME: string;
 
   @ApiProperty()
   declare THIS_FIELD_IS_REQUIRED: string;

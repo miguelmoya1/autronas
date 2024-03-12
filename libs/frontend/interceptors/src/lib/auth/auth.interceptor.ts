@@ -1,8 +1,4 @@
-import {
-  HttpEventType,
-  HttpInterceptorFn,
-  HttpStatusCode,
-} from '@angular/common/http';
+import { HttpEventType, HttpInterceptorFn, HttpStatusCode } from '@angular/common/http';
 import { inject } from '@angular/core';
 import { AuthDtoService } from '@autronas/frontend/actions';
 import { tap } from 'rxjs';

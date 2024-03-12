@@ -1,7 +1,4 @@
-import {
-  UserLoggedInEvent,
-  UserRehydratedEvent,
-} from '@autronas/backend/events';
+import { UserLoggedInEvent, UserRehydratedEvent } from '@autronas/backend/events';
 import { UserEntity } from './user.entity';
 
 const user = {

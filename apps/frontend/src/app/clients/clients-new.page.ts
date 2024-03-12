@@ -1,9 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import {
-  ClientsCreateView,
-  ClientsTableView,
-  ClientsTitleView,
-} from '@autronas/frontend/views';
+import { ClientsCreateView, ClientsTableView, ClientsTitleView } from '@autronas/frontend/views';
 
 @Component({
   selector: 'autronas-clients-new-page',

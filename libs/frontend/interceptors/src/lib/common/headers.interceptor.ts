@@ -1,12 +1,9 @@
-import { HttpHandlerFn, HttpRequest } from '@angular/common/http';
+import { HttpInterceptorFn } from '@angular/common/http';
 import { server_url, token_name } from '@autronas/frontend/helpers';
 import { Preferences } from '@capacitor/preferences';
 import { from, switchMap } from 'rxjs';
 
-export const headersInterceptor = (
-  request: HttpRequest<unknown>,
-  next: HttpHandlerFn,
-) => {
+export const headersInterceptor: HttpInterceptorFn = (request, next) => {
   return from(Preferences.get({ key: token_name })).pipe(
     switchMap(({ value }) => {
       let headersToAdd = request.headers;

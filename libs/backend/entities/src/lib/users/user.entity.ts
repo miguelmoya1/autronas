@@ -1,7 +1,4 @@
-import {
-  UserLoggedInEvent,
-  UserRehydratedEvent,
-} from '@autronas/backend/events';
+import { UserLoggedInEvent, UserRehydratedEvent } from '@autronas/backend/events';
 import { User } from '@autronas/core/interfaces';
 import { AggregateRoot } from '@nestjs/cqrs';
 import { ApiProperty } from '@nestjs/swagger';

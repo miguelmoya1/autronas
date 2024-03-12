@@ -1,9 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import {
-  ActivatedRouteSnapshot,
-  CanDeactivateFn,
-  RouterStateSnapshot,
-} from '@angular/router';
+import { ActivatedRouteSnapshot, CanDeactivateFn, RouterStateSnapshot } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { StoreService } from '@autronas/frontend/store';
 import { Observable } from 'rxjs';
@@ -29,12 +25,7 @@ describe('authGuardLogged', () => {
       const activatedRouteSnapshot = {} as ActivatedRouteSnapshot;
       const routerStateSnapshot = {} as RouterStateSnapshot;
 
-      const result = executeGuard(
-        true,
-        activatedRouteSnapshot,
-        routerStateSnapshot,
-        routerStateSnapshot,
-      );
+      const result = executeGuard(true, activatedRouteSnapshot, routerStateSnapshot, routerStateSnapshot);
 
       expect(result).toBeTruthy();
     });
@@ -43,12 +34,7 @@ describe('authGuardLogged', () => {
       const activatedRouteSnapshot = {} as ActivatedRouteSnapshot;
       const routerStateSnapshot = {} as RouterStateSnapshot;
 
-      const result = executeGuard(
-        true,
-        activatedRouteSnapshot,
-        routerStateSnapshot,
-        routerStateSnapshot,
-      );
+      const result = executeGuard(true, activatedRouteSnapshot, routerStateSnapshot, routerStateSnapshot);
 
       if (result instanceof Observable) {
         result.subscribe((value) => expect(value).toBeTruthy());

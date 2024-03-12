@@ -1,8 +1,5 @@
 import { Injectable, inject } from '@angular/core';
-import {
-  sv_google_login_client_id,
-  token_name,
-} from '@autronas/frontend/helpers';
+import { sv_google_login_client_id, token_name } from '@autronas/frontend/helpers';
 import { STORE_KEYS, StoreService } from '@autronas/frontend/store';
 import { Preferences } from '@capacitor/preferences';
 import { GoogleAuth } from '@codetrix-studio/capacitor-google-auth';
