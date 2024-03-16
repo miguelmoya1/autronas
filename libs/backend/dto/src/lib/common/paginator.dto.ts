@@ -1,6 +1,6 @@
 import { Paginator } from '@autronas/core/interfaces';
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
-import { Type } from 'class-transformer';
+import { Transform, Type } from 'class-transformer';
 import { IsNotEmpty, IsNumber, Max, Min } from 'class-validator';
 
 export class PaginatorDTO implements Paginator {
@@ -22,6 +22,7 @@ export class PaginatorDTO implements Paginator {
   @ApiPropertyOptional()
   declare readonly sort?: string;
 
-  @ApiPropertyOptional({ example: 'ASC' })
-  declare readonly direction?: 'ASC' | 'DESC';
+  @ApiPropertyOptional({ example: 'asc' })
+  @Transform(({ value }) => value.toUpperCase())
+  declare readonly direction?: 'asc' | 'desc';
 }

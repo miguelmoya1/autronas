@@ -1,0 +1,18 @@
+<mat-table #table [dataSource]="dataSource" matSort>
+  <ng-content />
+
+  <mat-header-row *matHeaderRowDef="headers()" />
+  <mat-row *matRowDef="let row; columns: headers()" [routerLink]="['/clients', row.id]" />
+</mat-table>
+
+@if (loading()) {
+  <mat-progress-bar mode="indeterminate" />
+}
+
+@if (!data().data.length) {
+  <div class="empty-data-table">
+    {{ 'NO_DATA' | translate }}
+  </div>
+}
+
+<mat-paginator [length]="data().count" [pageSizeOptions]="[5, 10, 25]" />

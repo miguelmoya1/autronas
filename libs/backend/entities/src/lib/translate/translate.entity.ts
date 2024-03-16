@@ -8,10 +8,10 @@ export class TranslateEntity {
   declare ACCESS_TOKEN_REQUIRED: string;
 
   @ApiProperty()
-  declare ASC: string;
+  declare CANNOT_CREATE_USER: string;
 
   @ApiProperty()
-  declare CANNOT_CREATE_USER: string;
+  declare CLIENT: string;
 
   @ApiProperty()
   declare CLIENTS: string;
@@ -68,7 +68,7 @@ export class TranslateEntity {
   declare CREATE_CLIENT: string;
 
   @ApiProperty()
-  declare DESC: string;
+  declare EDIT: string;
 
   @ApiProperty()
   declare EMAIL: string;
@@ -135,6 +135,9 @@ export class TranslateEntity {
 
   @ApiProperty()
   declare INVALID_USER: string;
+
+  @ApiProperty()
+  declare IS_BUSINESS: string;
 
   @ApiProperty()
   declare ITEMS_PER_PAGE: string;

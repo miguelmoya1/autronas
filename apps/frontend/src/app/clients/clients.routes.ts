@@ -11,6 +11,10 @@ const CLIENTS_ROUTES: Routes = [
   },
 
   {
+    path: ':id',
+    loadChildren: () => import('./details/clients-detail.routes'),
+  },
+  {
     path: '**',
     redirectTo: '',
   },

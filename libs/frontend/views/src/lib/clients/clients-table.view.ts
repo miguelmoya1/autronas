@@ -6,6 +6,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatProgressBar } from '@angular/material/progress-bar';
 import { MatSortModule } from '@angular/material/sort';
 import { MatHeaderRow, MatRow, MatTableModule } from '@angular/material/table';
+import { RouterLink } from '@angular/router';
 import { Client, Paginator } from '@autronas/core/interfaces';
 import { EmptyDataTableComponent } from '@autronas/frontend/components';
 import { TableBaseComponent, defaultTableData } from '@autronas/frontend/helpers';
@@ -84,7 +85,7 @@ import { STORE_KEYS, StoreService } from '@autronas/frontend/store';
           </ng-container>
 
           <mat-header-row *matHeaderRowDef="headers()" />
-          <mat-row *matRowDef="let row; columns: headers()" />
+          <mat-row *matRowDef="let row; columns: headers()" [routerLink]="['/clients', row.id]" />
         </mat-table>
 
         @if (clients().loading) {
@@ -112,10 +113,15 @@ import { STORE_KEYS, StoreService } from '@autronas/frontend/store';
     EmptyDataTableComponent,
     MatCard,
     MatCardContent,
+    RouterLink,
   ],
   styles: `
     :host {
       display: block;
+    }
+
+    mat-card {
+      cursor: pointer;
     }
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,

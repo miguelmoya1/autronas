@@ -10,5 +10,5 @@ export type Paginator = {
   offset: number;
   limit: number;
   sort?: string;
-  direction?: 'ASC' | 'DESC';
+  direction?: 'asc' | 'desc';
 };

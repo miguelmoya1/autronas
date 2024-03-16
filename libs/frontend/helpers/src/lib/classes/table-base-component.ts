@@ -70,7 +70,10 @@ export abstract class TableBaseComponent<T = unknown> {
 
     if (sort.active) {
       data['sort'] = sort.active;
-      data['direction'] = sort.direction === 'asc' ? 'ASC' : 'DESC';
+    }
+
+    if (sort.direction) {
+      data['direction'] = sort.direction;
     }
 
     await this.fetchMore(data);
