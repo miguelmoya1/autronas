@@ -13,4 +13,10 @@ export class ClientsDtoService {
 
     return response.isOk();
   }
+
+  public async update(client: ClientCreateInput, clientID: string) {
+    const response = await this._authApiService.update(client, clientID);
+
+    return response.isOk();
+  }
 }

@@ -24,6 +24,8 @@ export class ClientFormService {
       nonNullable: true,
       validators: [Validators.required],
     }),
+
+    notes: new FormControl<string | undefined>(undefined),
   });
 
   constructor() {

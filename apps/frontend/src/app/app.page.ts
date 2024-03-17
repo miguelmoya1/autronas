@@ -33,7 +33,12 @@ export class AppPage implements OnInit {
 
       if (tokenData && this.firstLoad && !isLoggedLoading) {
         untracked(() => {
-          this._authDtoService.rehydrate();
+          try {
+            this._authDtoService.rehydrate();
+          } catch (e) {
+            this._authDtoService.logout();
+            console.error(e);
+          }
         });
 
         this.firstLoad = false;

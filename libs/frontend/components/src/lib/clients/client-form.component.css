@@ -3,7 +3,7 @@
   width: 100%;
 }
 
-.form-container {
+mat-card-content {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;

@@ -6,6 +6,7 @@ import {
   BelongsToSetAssociationMixin,
   FindOptions,
   STRING,
+  TEXT,
   UUID,
   UUIDV4,
 } from 'sequelize';
@@ -53,7 +54,6 @@ export class ClientModel extends Model<Client, ClientCreateDTO> {
 
   @Column({
     type: STRING,
-    allowNull: false,
   })
   declare phoneNumber: string;
 
@@ -62,6 +62,11 @@ export class ClientModel extends Model<Client, ClientCreateDTO> {
     allowNull: false,
   })
   declare isBusiness: boolean;
+
+  @Column({
+    type: TEXT,
+  })
+  declare notes: string;
 
   @BelongsTo(() => UserModel, 'userID')
   declare user?: UserModel;

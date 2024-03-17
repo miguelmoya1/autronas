@@ -152,3 +152,9 @@ mat-card-footer {
 mat-card-header {
   margin-bottom: 16px;
 }
+
+textarea {
+  resize: vertical;
+  max-height: 400px;
+  min-height: 100px;
+}

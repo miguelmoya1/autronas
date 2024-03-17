@@ -32,10 +32,16 @@ export class TranslateEntity {
   declare CLIENT_IS_BUSINESS_REQUIRED: string;
 
   @ApiProperty()
+  declare CLIENT_MODIFIED_SUCCESSFUL: string;
+
+  @ApiProperty()
   declare CLIENT_NAME_INVALID_STRING: string;
 
   @ApiProperty()
   declare CLIENT_NAME_REQUIRED: string;
+
+  @ApiProperty()
+  declare CLIENT_NOTES_INVALID_STRING: string;
 
   @ApiProperty()
   declare CLIENT_PERSONAL_ID_INVALID_STRING: string;
@@ -69,6 +75,9 @@ export class TranslateEntity {
 
   @ApiProperty()
   declare EDIT: string;
+
+  @ApiProperty()
+  declare EDIT_CLIENT: string;
 
   @ApiProperty()
   declare EMAIL: string;
@@ -173,6 +182,9 @@ export class TranslateEntity {
   declare NEXT_PAGE: string;
 
   @ApiProperty()
+  declare NO: string;
+
+  @ApiProperty()
   declare NO_DATA: string;
 
   @ApiProperty()
@@ -188,6 +200,9 @@ export class TranslateEntity {
   declare REQUIRED: string;
 
   @ApiProperty()
+  declare SAVE: string;
+
+  @ApiProperty()
   declare SURNAME: string;
 
   @ApiProperty()
@@ -195,4 +210,7 @@ export class TranslateEntity {
 
   @ApiProperty()
   declare UNAUTHORIZED: string;
+
+  @ApiProperty()
+  declare YES: string;
 }

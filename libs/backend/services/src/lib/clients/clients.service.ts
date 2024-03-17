@@ -75,9 +75,11 @@ export class ClientsService {
     const clientDB = await this.clientModel.update(
       {
         ...client,
+        // avoid updating the userID or the clientID
         id: clientID,
+        userID: id,
       },
-      { where: { id }, returning: true },
+      { where: { id: clientID, userID: id }, returning: true },
     );
 
     if (clientDB[0] === 0) {

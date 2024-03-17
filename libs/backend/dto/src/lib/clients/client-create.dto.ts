@@ -36,6 +36,11 @@ export class ClientCreateDTO implements ClientCreateInput {
   @IsString({ message: 'CLIENT_SURNAME_INVALID_STRING' })
   declare surname?: string;
 
+  @ApiProperty()
+  @IsOptional()
+  @IsString({ message: 'CLIENT_NOTES_INVALID_STRING' })
+  declare notes?: string;
+
   @Exclude()
   declare userID?: string;
 }

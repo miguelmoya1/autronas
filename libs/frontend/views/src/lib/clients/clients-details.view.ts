@@ -1,13 +1,21 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { MatButton, MatIconButton } from '@angular/material/button';
+import { MatCard, MatCardContent } from '@angular/material/card';
 import { MatIcon } from '@angular/material/icon';
+import { MatProgressBar } from '@angular/material/progress-bar';
+import { MatTooltip } from '@angular/material/tooltip';
 import { RouterLink } from '@angular/router';
 import { TranslatePipe } from '@autronas/frontend/pipes';
+import { STORE_KEYS, StoreService } from '@autronas/frontend/store';
 
 @Component({
   selector: 'autronas-clients-detail-view',
   standalone: true,
   template: `
+    @if (client().loading) {
+      <mat-progress-bar mode="indeterminate" />
+    }
+
     <h1>
       <div>
         <button mat-icon-button color="primary" [routerLink]="['/clients']">
@@ -16,11 +24,60 @@ import { TranslatePipe } from '@autronas/frontend/pipes';
         {{ 'CLIENT' | translate }}
       </div>
 
-      <button mat-stroked-button color="warn">
+      <button
+        mat-stroked-button
+        color="warn"
+        [disabled]="client().loading"
+        [routerLink]="['/clients', client().data?.id, 'edit']"
+      >
         <mat-icon> edit </mat-icon>
         {{ 'EDIT' | translate }}
       </button>
     </h1>
+
+    @if (client().data; as client) {
+      <mat-card appearance="outlined">
+        <mat-card-content class="content">
+          <div>
+            <mat-icon>person</mat-icon>
+            {{ client.name }} {{ client.surname }}
+          </div>
+
+          <div>
+            <mat-icon>email</mat-icon>
+            {{ client.email }}
+          </div>
+
+          <div>
+            <mat-icon>credit_card</mat-icon>
+            {{ client.personalID }}
+          </div>
+
+          <div>
+            <mat-icon>phone</mat-icon>
+            {{ client.phoneNumber || '-' }}
+          </div>
+
+          <div>
+            <mat-icon [matTooltip]="'IS_BUSINESS' | translate">business</mat-icon>
+            @if (client.isBusiness) {
+              {{ 'YES' | translate }}
+            } @else {
+              {{ 'NO' | translate }}
+            }
+          </div>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card appearance="outlined">
+        <mat-card-content class="content">
+          <div>
+            <mat-icon>notes</mat-icon>
+            <pre>{{ client.notes || '-' }}</pre>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    }
   `,
   styles: `
     :host {
@@ -32,8 +89,46 @@ import { TranslatePipe } from '@autronas/frontend/pipes';
       align-items: center;
       justify-content: space-between;
     }
+
+    .content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+
+      div {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+      }
+    }
+
+    pre {
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      width: 100%;
+
+      max-height: 200px;
+      overflow: auto;
+    }
   `,
-  imports: [MatIcon, MatButton, MatIconButton, TranslatePipe, RouterLink],
+  imports: [
+    MatIcon,
+    MatButton,
+    MatIconButton,
+    TranslatePipe,
+    RouterLink,
+    MatProgressBar,
+    MatCard,
+    MatCardContent,
+    MatTooltip,
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ClientsDetailsView {}
+export class ClientsDetailsView {
+  private readonly _store = inject(StoreService);
+
+  protected readonly client = this._store.get(STORE_KEYS.CLIENT);
+}

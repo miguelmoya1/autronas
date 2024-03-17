@@ -8,10 +8,12 @@ export type Client = {
   id: string;
 
   name: string;
-  surname: string;
+  surname?: string;
   email: string;
   personalID: string;
   phoneNumber: string;
+
+  notes: string;
 
   isBusiness: boolean;
 
@@ -30,6 +32,7 @@ export type ClientCreateInput = {
 
   isBusiness: boolean;
 
+  notes?: string;
   surname?: string;
   phoneNumber?: string;
 };

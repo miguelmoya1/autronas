@@ -45,6 +45,9 @@ export class ClientEntity extends AggregateRoot implements Client {
   public declare isBusiness: boolean;
 
   @ApiProperty()
+  public declare notes: string;
+
+  @ApiProperty()
   public declare isOwner: boolean;
 
   @ApiProperty()
@@ -94,6 +97,7 @@ export class ClientEntity extends AggregateRoot implements Client {
     this.personalID = client.personalID ?? this.personalID;
     this.phoneNumber = client.phoneNumber ?? this.phoneNumber;
     this.isBusiness = client.isBusiness ?? this.isBusiness;
+    this.notes = client.notes ?? this.notes;
 
     this.userID = client.userID ?? this.userID;
     this.isOwner = client.isOwner ?? this.isOwner;
