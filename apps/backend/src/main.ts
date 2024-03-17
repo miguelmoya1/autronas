@@ -42,31 +42,37 @@ function setupSwagger(app: NestFastifyApplication) {
 }
 
 async function bootstrap() {
-  const app = await NestFactory.create<NestFastifyApplication>(AppModule, new FastifyAdapter());
+  try {
+    const app = await NestFactory.create<NestFastifyApplication>(AppModule, new FastifyAdapter());
 
-  app.useGlobalPipes(new ValidationPipe({ transform: true }));
+    app.useGlobalPipes(new ValidationPipe({ transform: true }));
 
-  app.useGlobalInterceptors(new ClassSerializerInterceptor(app.get(Reflector)));
+    app.useGlobalInterceptors(new ClassSerializerInterceptor(app.get(Reflector)));
 
-  app.enableCors();
+    app.enableCors();
 
-  // setupSentry(app);
+    // setupSentry(app);
 
-  setupSwagger(app);
+    setupSwagger(app);
 
-  const configService = app.get(ConfigService);
+    const configService = app.get(ConfigService);
 
-  await app.listen(configService.get('PORT') || 3000);
+    await app.listen(configService.get('PORT') || 3000);
 
-  // use logs errors only if the application is on production, otherwise use the default logger
-  const logLevels: LogLevel[] =
-    configService.get('NODE_ENV') === 'development' ? ['debug', 'error', 'warn', 'log', 'verbose', 'fatal'] : ['error'];
+    // use logs errors only if the application is on production, otherwise use the default logger
+    const logLevels: LogLevel[] =
+      configService.get('NODE_ENV') === 'development'
+        ? ['debug', 'error', 'warn', 'log', 'verbose', 'fatal']
+        : ['error'];
 
-  app.useLogger(logLevels);
+    app.useLogger(logLevels);
 
-  const logger = new Logger('bootstrap');
+    const logger = new Logger('bootstrap');
 
-  logger.log(`Application listening on port ${configService.get('PORT') || 3000}`);
+    logger.log(`Application listening on port ${configService.get('PORT') || 3000}`);
+  } catch (error) {
+    console.error(error);
+  }
 }
 
 bootstrap();

@@ -21,6 +21,16 @@ export class ClientApiService {
     );
   }
 
+  public getOne(id: string) {
+    return firstValueFrom(
+      this._http.get<Client>(`${this._URL}/${id}`).pipe(
+        map((client) => new ApiOkResponse(client)),
+        catchError((error) => of(new ApiErrorResponse(error))),
+        map((response) => new DataFromApi(response)),
+      ),
+    );
+  }
+
   public create(client: ClientCreateInput) {
     return firstValueFrom(
       this._http.post<Client>(this._URL, client).pipe(

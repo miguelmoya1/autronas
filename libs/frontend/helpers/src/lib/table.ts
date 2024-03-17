@@ -10,3 +10,7 @@ export const defaultTableData = <T>(value: T) => {
     hasPrevious: false,
   };
 };
+
+export enum TABLE_KEYS {
+  CLIENTS = 'clientsTableData',
+}

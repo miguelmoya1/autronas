@@ -1,9 +1,9 @@
 import { ClientCreateCommand, ClientUpdateCommand } from '@autronas/backend/commands';
 import { CurrentUser } from '@autronas/backend/decorators';
 import { ClientCreateDTO, ClientUpdateDTO, PaginatorDTO } from '@autronas/backend/dto';
-import { ClientsPaginatedEntity, UserEntity } from '@autronas/backend/entities';
+import { ClientEntity, ClientsPaginatedEntity, UserEntity } from '@autronas/backend/entities';
 import { JwtAuthGuard } from '@autronas/backend/guards';
-import { ClientsGetMyQuery } from '@autronas/backend/queries';
+import { ClientsGetMyQuery, ClientsGetQuery } from '@autronas/backend/queries';
 import { Body, Controller, Get, Param, Post, Put, Query, UseGuards } from '@nestjs/common';
 import { CommandBus, QueryBus } from '@nestjs/cqrs';
 import { ApiBearerAuth, ApiOkResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
@@ -26,6 +26,17 @@ export class ClientsController {
   @ApiBearerAuth()
   async getMe(@CurrentUser() user: UserEntity, @Query() paginator: PaginatorDTO) {
     return this.queryBus.execute(new ClientsGetMyQuery(paginator, user));
+  }
+
+  @Get(':clientID')
+  @ApiOperation({
+    summary: 'Get a client',
+    description: 'Get a client',
+  })
+  @ApiOkResponse({ type: ClientEntity })
+  @ApiBearerAuth()
+  async getOne(@CurrentUser() user: UserEntity, @Param('clientID') clientID: string) {
+    return this.queryBus.execute(new ClientsGetQuery(clientID, user));
   }
 
   @Post()

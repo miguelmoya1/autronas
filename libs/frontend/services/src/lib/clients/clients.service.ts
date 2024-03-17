@@ -20,9 +20,9 @@ export class ClientsService {
 
       untracked(() => {
         if (isLogged) {
-          this.watch();
+          this.watchPaginator();
         } else {
-          this.unwatch();
+          this.unwatchPaginator();
         }
       });
     });
@@ -38,10 +38,23 @@ export class ClientsService {
         });
       }
     });
+
+    effect(() => {
+      const clientID = this._store.get(STORE_KEYS.CLIENT_ID)();
+      const isLogged = this._store.get(STORE_KEYS.IS_LOGGED)();
+
+      if (clientID && isLogged) {
+        untracked(async () => {
+          await this.setClient(clientID);
+        });
+      }
+    });
   }
 
-  private async watch() {
+  private async watchPaginator() {
     this._store.set(STORE_KEYS.ALL_CLIENTS_PAGINATED, defaultDataLoading());
+
+    this.unwatchPaginator();
 
     this.effectRef = effect(
       async () => {
@@ -55,7 +68,7 @@ export class ClientsService {
     );
   }
 
-  private unwatch() {
+  private unwatchPaginator() {
     this._store.set(STORE_KEYS.ALL_CLIENTS_PAGINATED, defaultDataLoading());
 
     if (this.effectRef) {
@@ -71,5 +84,13 @@ export class ClientsService {
     const response = await this._clientApiService.getAll(paginator as Required<Paginator>);
 
     this._store.set(STORE_KEYS.ALL_CLIENTS_PAGINATED, response.serialize());
+  }
+
+  public async setClient(clientID: string) {
+    this._store.set(STORE_KEYS.CLIENT, defaultDataLoading());
+
+    const response = await this._clientApiService.getOne(clientID);
+
+    this._store.set(STORE_KEYS.CLIENT, response.serialize());
   }
 }

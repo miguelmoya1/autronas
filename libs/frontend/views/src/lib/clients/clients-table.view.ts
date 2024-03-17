@@ -1,5 +1,5 @@
 import { DatePipe } from '@angular/common';
-import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, computed, inject } from '@angular/core';
 import { MatCard, MatCardContent } from '@angular/material/card';
 import { MatIcon } from '@angular/material/icon';
 import { MatPaginator } from '@angular/material/paginator';
@@ -9,7 +9,7 @@ import { MatHeaderRow, MatRow, MatTableModule } from '@angular/material/table';
 import { RouterLink } from '@angular/router';
 import { Client, Paginator } from '@autronas/core/interfaces';
 import { EmptyDataTableComponent } from '@autronas/frontend/components';
-import { TableBaseComponent, defaultTableData } from '@autronas/frontend/helpers';
+import { TABLE_KEYS, TableBaseComponent, defaultTableData } from '@autronas/frontend/helpers';
 import { TranslatePipe } from '@autronas/frontend/pipes';
 import { STORE_KEYS, StoreService } from '@autronas/frontend/store';
 
@@ -126,16 +126,22 @@ import { STORE_KEYS, StoreService } from '@autronas/frontend/store';
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ClientsTableView extends TableBaseComponent<Client> {
+export class ClientsTableView extends TableBaseComponent<Client> implements OnInit {
   private readonly _store = inject(StoreService);
 
   protected readonly clients = this._store.get(STORE_KEYS.ALL_CLIENTS_PAGINATED);
 
-  protected override readonly tableName = 'Clients';
+  protected override readonly storeKey = TABLE_KEYS.CLIENTS;
   protected override readonly headers = this._store.get(STORE_KEYS.CLIENT_TABLE_HEADERS);
   protected override readonly data = computed(() => defaultTableData(this.clients().data));
 
   protected override async fetchMore(data: Paginator) {
     this._store.set(STORE_KEYS.CLIENTS_PAGINATOR, data);
+  }
+
+  public ngOnInit() {
+    const paginator = this._store.get(STORE_KEYS.CLIENTS_PAGINATOR);
+
+    this.setPaginator(paginator());
   }
 }

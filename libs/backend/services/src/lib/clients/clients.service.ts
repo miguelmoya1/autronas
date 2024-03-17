@@ -41,6 +41,19 @@ export class ClientsService {
     };
   }
 
+  public async get(clientID: string, user: UserEntity) {
+    const clientDB = await this.clientModel.findOne({
+      ...ClientModel.baseOptions,
+      where: { id: clientID, userID: user.id },
+    });
+
+    if (!clientDB) {
+      return null;
+    }
+
+    return new ClientEntity(clientDB.toJSON(), user);
+  }
+
   public async create(client: ClientCreateDTO, user: UserEntity) {
     const { id } = user;
 

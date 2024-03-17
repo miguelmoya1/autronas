@@ -17,6 +17,8 @@ export enum STORE_KEYS {
   CLIENTS_PAGINATOR = 'clientsPaginator',
   CLIENTS_NEED_REFRESH = 'clientsNeedRefresh',
   CLIENT_TABLE_HEADERS = 'clientTableHeaders',
+  CLIENT_ID = 'clientId',
+  CLIENT = 'client',
 }
 
 export interface Store {
@@ -35,4 +37,6 @@ export interface Store {
   [STORE_KEYS.CLIENTS_PAGINATOR]: Paginator;
   [STORE_KEYS.CLIENTS_NEED_REFRESH]: boolean;
   [STORE_KEYS.CLIENT_TABLE_HEADERS]: (keyof Client)[];
+  [STORE_KEYS.CLIENT_ID]: string | null;
+  [STORE_KEYS.CLIENT]: Data<Client>;
 }

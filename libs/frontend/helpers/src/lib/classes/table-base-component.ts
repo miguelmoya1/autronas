@@ -1,4 +1,4 @@
-import { Component, DestroyRef, Signal, effect, inject, untracked, viewChild } from '@angular/core';
+import { AfterViewInit, Component, DestroyRef, Signal, effect, inject, untracked, viewChild } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -11,8 +11,8 @@ import { merge } from 'rxjs';
   selector: 'autronas-table',
   template: '',
 })
-export abstract class TableBaseComponent<T = unknown> {
-  protected abstract readonly tableName: string;
+export abstract class TableBaseComponent<T = unknown> implements AfterViewInit {
+  protected abstract readonly storeKey: string;
   protected abstract readonly headers: Signal<string[]>;
   protected abstract readonly data: Signal<Paginated<T>>;
   protected abstract fetchMore(data: Paginator): Promise<void>;
@@ -31,32 +31,19 @@ export abstract class TableBaseComponent<T = unknown> {
         this.dataSource.data = data;
       });
     });
+  }
 
-    effect(async () => {
-      const paginator = this.paginator();
-      const sort = this.sort();
+  public ngAfterViewInit() {
+    const paginator = this.paginator();
+    const sort = this.sort();
 
-      const { value } = await Preferences.get({ key: `itemPerPage-${this.tableName}` });
-      paginator.pageSize = parseInt(value || '10', 10);
+    // reset the paginator after sorting
+    sort.sortChange.pipe(takeUntilDestroyed(this.destroyRef)).subscribe(() => (paginator.pageIndex = 0));
 
-      // set the paginator page size based on the user's preference
-      paginator.page.pipe(takeUntilDestroyed(this.destroyRef)).subscribe((p) => {
-        Preferences.set({ key: `itemPerPage-${this.tableName}`, value: p.pageSize.toString() });
-      });
-
-      // reset the paginator after sorting
-      sort.sortChange.pipe(takeUntilDestroyed(this.destroyRef)).subscribe(() => (paginator.pageIndex = 0));
-
-      // on sort or paginate events, load a new page
-      merge(sort.sortChange, paginator.page)
-        .pipe(takeUntilDestroyed(this.destroyRef))
-        .subscribe(() => this.loadData());
-
-      // load the first page
-      untracked(() => {
-        this.loadData();
-      });
-    });
+    // on sort or paginate events, load a new page
+    merge(sort.sortChange, paginator.page)
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe(() => this.loadData());
   }
 
   private async loadData() {
@@ -76,6 +63,16 @@ export abstract class TableBaseComponent<T = unknown> {
       data['direction'] = sort.direction;
     }
 
+    Preferences.set({ key: this.storeKey, value: JSON.stringify(data) });
+
     await this.fetchMore(data);
+  }
+
+  public setPaginator(paginator: Paginator) {
+    this.paginator().pageSize = paginator.limit;
+    this.paginator().pageIndex = paginator.offset / paginator.limit;
+
+    this.sort().active = paginator.sort || '';
+    this.sort().direction = paginator.direction || 'asc';
   }
 }

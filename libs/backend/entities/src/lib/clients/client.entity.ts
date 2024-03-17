@@ -67,7 +67,7 @@ export class ClientEntity extends AggregateRoot implements Client {
 
     this.assign(partial);
 
-    this.isOwner = this.id === user.id;
+    this.isOwner = this.userID === user.id;
 
     this.permissions = new ClientPermissions(this);
   }

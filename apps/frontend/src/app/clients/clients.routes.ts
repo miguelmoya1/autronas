@@ -1,15 +1,22 @@
 import { Routes } from '@angular/router';
+import { clientResolver } from '@autronas/frontend/resolvers';
 
 const CLIENTS_ROUTES: Routes = [
   {
     path: '',
-    loadComponent: () => import('./clients.page'),
+    loadComponent: () => import('./all/clients.page'),
   },
   {
     path: 'new',
-    loadComponent: () => import('./clients-new.page'),
+    loadComponent: () => import('./new/clients-new.page'),
   },
-
+  {
+    path: ':clientID',
+    resolve: {
+      clientResolver,
+    },
+    loadChildren: () => import('./details/clients-detail.routes'),
+  },
   {
     path: ':id',
     loadChildren: () => import('./details/clients-detail.routes'),
