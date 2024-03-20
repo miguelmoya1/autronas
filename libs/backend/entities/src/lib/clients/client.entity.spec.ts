@@ -4,6 +4,12 @@ import { ClientEntity } from './client.entity';
 const client: Client = {
   id: '123',
   name: 'Test Client',
+  email: 'algo@algo.com',
+  isBusiness: false,
+  notes: 'Some notes',
+  personalID: '123456789',
+  phoneNumber: '123456789',
+  surname: 'Test',
   isOwner: true,
   permissions: {
     canEdit: true,

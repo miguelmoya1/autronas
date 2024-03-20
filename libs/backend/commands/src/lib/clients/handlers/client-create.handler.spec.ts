@@ -12,8 +12,14 @@ describe('ClientCreateHandler', () => {
   let clientCreateHandler: ClientCreateHandler;
   let clientsService: ClientsService;
 
-  const command = new ClientCreateCommand({ name: 'name' }, {} as UserEntity);
-  const commandError = new ClientCreateCommand({ name: 'error' }, {} as UserEntity);
+  const command = new ClientCreateCommand(
+    { name: 'name', email: 'email@email.com', isBusiness: false, personalID: '123456789' },
+    {} as UserEntity,
+  );
+  const commandError = new ClientCreateCommand(
+    { name: 'error', email: 'email@email.com', isBusiness: false, personalID: '123456789' },
+    {} as UserEntity,
+  );
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({

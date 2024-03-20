@@ -1,5 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { ActivatedRoute } from '@angular/router';
+import { ClientsDtoService } from '@autronas/frontend/actions';
 import { ClientsCreateView } from './clients-create.view';
+
+jest.mock('@autronas/frontend/actions');
 
 describe('ClientsCreateView', () => {
   let component: ClientsCreateView;
@@ -7,7 +12,20 @@ describe('ClientsCreateView', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ClientsCreateView],
+      imports: [ClientsCreateView, NoopAnimationsModule],
+      providers: [
+        ClientsDtoService,
+        {
+          provide: ActivatedRoute,
+          useValue: {
+            snapshot: {
+              paramMap: {
+                get: () => '1',
+              },
+            },
+          },
+        },
+      ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(ClientsCreateView);

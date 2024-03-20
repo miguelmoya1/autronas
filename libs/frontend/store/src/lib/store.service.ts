@@ -46,7 +46,7 @@ export class StoreService {
 
     this._store.set(STORE_KEYS.CURRENT_USER, signal(defaultDataLoading()));
 
-    this._store.set(STORE_KEYS.ALL_CLIENTS_PAGINATED, signal(defaultDataLoading()));
+    this._store.set(STORE_KEYS.ALL_CLIENTS_PAGINATED, signal({ offset: 0, limit: 10 }));
 
     try {
       const { value } = await Preferences.get({ key: TABLE_KEYS.CLIENTS });

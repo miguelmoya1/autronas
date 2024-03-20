@@ -4,6 +4,14 @@ import { clientMock } from '@autronas/backend/testing';
 
 export class ClientsService {
   readonly getMy = jest.fn().mockImplementation(async (id: ClientEntity['id']) => {
+    return [
+      new ClientEntity({ ...clientMock, id }, { ...clientMock, id }),
+      new ClientEntity({ ...clientMock, id }, { ...clientMock, id }),
+      ``,
+    ];
+  });
+
+  readonly get = jest.fn().mockImplementation(async (id: ClientEntity['id']) => {
     return new ClientEntity({ ...clientMock, id }, { ...clientMock, id });
   });
 
@@ -12,7 +20,7 @@ export class ClientsService {
       return null;
     }
 
-    return client;
+    return new ClientEntity({ ...clientMock, name: client.name }, { ...clientMock, name: client.name });
   });
 
   readonly create = jest.fn().mockImplementation(async (client: ClientCreateDTO) => {
@@ -20,6 +28,6 @@ export class ClientsService {
       return null;
     }
 
-    return client;
+    return new ClientEntity({ ...clientMock, name: client.name }, { ...clientMock, name: client.name });
   });
 }

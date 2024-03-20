@@ -26,11 +26,12 @@ describe('ClientsGetMyHandler', () => {
   describe('execute', () => {
     it('should call the clientService.get function', async () => {
       const userLogged = { id: '1' } as UserEntity;
-      const query = new ClientsGetMyQuery(userLogged);
+      const paginator = { offset: 1, limit: 10 };
+      const query = new ClientsGetMyQuery(paginator, userLogged);
 
       await clientGetAllHandler.execute(query);
 
-      expect(clientsService.getMy).toHaveBeenCalledWith(userLogged);
+      expect(clientsService.getMy).toHaveBeenCalledWith(paginator, userLogged);
     });
   });
 });

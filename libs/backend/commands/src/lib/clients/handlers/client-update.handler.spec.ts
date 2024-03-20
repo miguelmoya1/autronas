@@ -12,8 +12,16 @@ describe('ClientUpdateHandler', () => {
   let clientUpdateHandler: ClientUpdateHandler;
   let clientsService: ClientsService;
 
-  const command = new ClientUpdateCommand({ name: 'name' }, '1234', {} as UserEntity);
-  const commandError = new ClientUpdateCommand({ name: 'error' }, 'error', {} as UserEntity);
+  const command = new ClientUpdateCommand(
+    { name: 'name', email: 'email@email.com', isBusiness: false, personalID: '123456789' },
+    '1234',
+    {} as UserEntity,
+  );
+  const commandError = new ClientUpdateCommand(
+    { name: 'error', email: 'email@email.com', isBusiness: false, personalID: '123456789' },
+    'error',
+    {} as UserEntity,
+  );
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({

@@ -1,20 +1,24 @@
 {
   "name": "app/store",
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/app/store/src",
+  "sourceRoot": "libs/frontend/store/src",
   "prefix": "autronas",
   "projectType": "library",
   "targets": {
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "outputs": [
+        "{workspaceRoot}/coverage/{projectRoot}"
+      ],
       "options": {
-        "jestConfig": "libs/app/store/jest.config.ts"
+        "jestConfig": "libs/frontend/store/jest.config.ts"
       }
     },
     "lint": {
       "executor": "@nx/eslint:lint"
     }
   },
-  "tags": ["scope:app"]
+  "tags": [
+    "scope:app"
+  ]
 }

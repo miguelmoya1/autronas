@@ -1,13 +1,13 @@
 import { readdir } from 'fs/promises';
-import { AuthCommandHandlers } from '.';
+import { ClientsCommandHandlers } from '.';
 
-describe('AuthCommandHandlers', () => {
+describe('ClientsCommandHandlers', () => {
   it('should be defined', () => {
-    expect(AuthCommandHandlers).toBeDefined();
+    expect(ClientsCommandHandlers).toBeDefined();
   });
 
   it('should be an Array', () => {
-    expect(AuthCommandHandlers).toBeInstanceOf(Array);
+    expect(ClientsCommandHandlers).toBeInstanceOf(Array);
   });
 
   it('should have the same length as the number of handlers in the same folder (only .handler.ts)', async () => {
@@ -15,6 +15,6 @@ describe('AuthCommandHandlers', () => {
 
     const filesCount = (await files).filter((file) => file.endsWith('.handler.ts')).length;
 
-    expect(AuthCommandHandlers).toHaveLength(filesCount);
+    expect(ClientsCommandHandlers).toHaveLength(filesCount);
   });
 });

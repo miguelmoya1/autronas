@@ -1,21 +1,26 @@
 import { TestBed } from '@angular/core/testing';
-import { ActivatedRouteSnapshot, CanDeactivateFn, RouterStateSnapshot } from '@angular/router';
-import { RouterTestingModule } from '@angular/router/testing';
+import { ActivatedRouteSnapshot, CanDeactivateFn, Router, RouterStateSnapshot } from '@angular/router';
 import { StoreService } from '@autronas/frontend/store';
 import { Observable } from 'rxjs';
-import { authGuardLogged } from './auth.guard';
+import { authGuard } from './auth.guard';
 
 jest.mock('@autronas/frontend/store');
 
 describe('authGuardLogged', () => {
   describe('authGuardLogged', () => {
-    const executeGuard: CanDeactivateFn<boolean> = (...guardParameters) =>
-      TestBed.runInInjectionContext(() => authGuardLogged(...guardParameters));
+    const executeGuard: CanDeactivateFn<boolean> = () => TestBed.runInInjectionContext(() => authGuard(true)());
 
     beforeEach(() => {
       TestBed.configureTestingModule({
-        providers: [StoreService],
-        imports: [RouterTestingModule],
+        providers: [
+          StoreService,
+          {
+            provide: Router,
+            useValue: {
+              url: '/url',
+            },
+          },
+        ],
       });
 
       jest.clearAllMocks();

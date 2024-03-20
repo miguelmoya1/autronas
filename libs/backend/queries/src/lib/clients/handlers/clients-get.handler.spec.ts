@@ -31,7 +31,7 @@ describe('ClientsGetHandler', () => {
 
       await clientGetAllHandler.execute(query);
 
-      expect(clientsService.get).toHaveBeenCalledWith(userLogged);
+      expect(clientsService.get).toHaveBeenCalledWith(clientID, userLogged);
     });
   });
 });
