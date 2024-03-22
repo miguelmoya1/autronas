@@ -4,6 +4,9 @@ import { Data } from '@autronas/frontend/shared';
 export enum STORE_KEYS {
   TRANSLATE = 'translate',
   AVAILABLE_LANGUAGES = 'availableLanguages',
+  CURRENT_LANGUAGE = 'currentLanguage',
+
+  CURRENT_THEME = 'currentTheme',
 
   IS_LOGGED_LOADING = 'isLoggedLoading',
   TOKEN = 'token',
@@ -24,6 +27,9 @@ export enum STORE_KEYS {
 export interface Store {
   [STORE_KEYS.TRANSLATE]: Data<{ [key: string]: string }>;
   [STORE_KEYS.AVAILABLE_LANGUAGES]: Data<string[]>;
+  [STORE_KEYS.CURRENT_LANGUAGE]: string;
+
+  [STORE_KEYS.CURRENT_THEME]: 'light-theme' | 'dark-theme';
 
   [STORE_KEYS.IS_LOGGED_LOADING]: boolean;
   [STORE_KEYS.TOKEN]: string | null;

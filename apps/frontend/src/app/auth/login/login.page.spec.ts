@@ -1,8 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { AuthApiService, TranslateService } from '@autronas/frontend/services';
+import { AuthDtoService } from '@autronas/frontend/actions';
+import { StoreService } from '@autronas/frontend/store';
 import AuthLoginPage from './login.page';
 
-jest.mock('@autronas/frontend/services');
+jest.mock('@autronas/frontend/actions');
+jest.mock('@autronas/frontend/store');
 
 describe('AuthLoginPage', () => {
   let component: AuthLoginPage;
@@ -10,8 +12,8 @@ describe('AuthLoginPage', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [TranslateService, AuthApiService],
       imports: [AuthLoginPage],
+      providers: [AuthDtoService, StoreService],
     });
     fixture = TestBed.createComponent(AuthLoginPage);
     component = fixture.componentInstance;

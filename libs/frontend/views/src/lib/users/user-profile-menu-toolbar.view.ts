@@ -1,8 +1,9 @@
 import { NgOptimizedImage } from '@angular/common';
 import { Component, inject } from '@angular/core';
+import { MatDivider } from '@angular/material/divider';
 import { MatIcon } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { AuthDtoService } from '@autronas/frontend/actions';
 import { TranslatePipe } from '@autronas/frontend/pipes';
 import { STORE_KEYS, StoreService } from '@autronas/frontend/store';
@@ -10,7 +11,7 @@ import { STORE_KEYS, StoreService } from '@autronas/frontend/store';
 @Component({
   selector: 'autronas-user-profile-menu-toolbar-view',
   standalone: true,
-  imports: [NgOptimizedImage, MatMenuModule, MatIcon, TranslatePipe],
+  imports: [NgOptimizedImage, MatMenuModule, MatIcon, TranslatePipe, MatDivider, RouterLink],
   template: `
     @if (isLogged()) {
       @if (currentUser().data; as user) {
@@ -19,6 +20,13 @@ import { STORE_KEYS, StoreService } from '@autronas/frontend/store';
         </div>
 
         <mat-menu #menu="matMenu">
+          <button mat-menu-item routerLink="/users/config">
+            <mat-icon>settings</mat-icon>
+            <span>{{ 'SETTINGS' | translate }}</span>
+          </button>
+
+          <mat-divider />
+
           <button mat-menu-item (click)="logout()">
             <mat-icon>logout</mat-icon>
             <span>{{ 'LOGOUT' | translate }}</span>
@@ -40,6 +48,12 @@ import { STORE_KEYS, StoreService } from '@autronas/frontend/store';
       border-radius: 9999px;
 
       cursor: pointer;
+    }
+
+    .language-switcher {
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
   `,
 })

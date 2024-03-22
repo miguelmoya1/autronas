@@ -1,5 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { StoreService } from '@autronas/frontend/store';
 import { EmptyDataTableComponent } from './empty-data-table.component';
+
+jest.mock('@autronas/frontend/store');
 
 describe('EmptyDataTableComponent', () => {
   let component: EmptyDataTableComponent;
@@ -8,6 +11,7 @@ describe('EmptyDataTableComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [EmptyDataTableComponent],
+      providers: [StoreService],
     }).compileComponents();
 
     fixture = TestBed.createComponent(EmptyDataTableComponent);

@@ -5,6 +5,7 @@ export * from '../lib/clients/__mocks__/client-api.service';
 export * from '../lib/clients/__mocks__/client-form.service';
 export * from '../lib/clients/__mocks__/clients.service';
 export * from '../lib/common/__mocks__/validators.service';
+export * from '../lib/theme/__mocks__/theme.service';
 export * from '../lib/translates/__mocks__/translate.service';
 export * from '../lib/users/__mocks__/user-api.service';
 export * from '../lib/users/__mocks__/user-socket.service';

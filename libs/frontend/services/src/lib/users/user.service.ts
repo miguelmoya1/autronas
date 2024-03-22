@@ -11,6 +11,8 @@ export class UserService {
   private readonly _userApiService = inject(UserApiService);
 
   constructor() {
+    this.setDefaultStoreValues();
+
     effect(() => {
       const isLogged = this._store.get(STORE_KEYS.IS_LOGGED)();
 
@@ -22,6 +24,10 @@ export class UserService {
         }
       });
     });
+  }
+
+  private setDefaultStoreValues() {
+    this._store.set(STORE_KEYS.CURRENT_USER, defaultDataLoading());
   }
 
   private async watch() {

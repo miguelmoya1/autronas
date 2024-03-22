@@ -2,9 +2,11 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { ActivatedRoute } from '@angular/router';
 import { ClientsDtoService } from '@autronas/frontend/actions';
+import { StoreService } from '@autronas/frontend/store';
 import { ClientsCreateView } from './clients-create.view';
 
 jest.mock('@autronas/frontend/actions');
+jest.mock('@autronas/frontend/store');
 
 describe('ClientsCreateView', () => {
   let component: ClientsCreateView;
@@ -15,6 +17,7 @@ describe('ClientsCreateView', () => {
       imports: [ClientsCreateView, NoopAnimationsModule],
       providers: [
         ClientsDtoService,
+        StoreService,
         {
           provide: ActivatedRoute,
           useValue: {

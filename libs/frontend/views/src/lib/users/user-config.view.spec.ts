@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { StoreService } from '@autronas/frontend/store';
-import { ToolbarView } from './toolbar.view';
+import { UserConfigView } from './user-config.view';
 
 jest.mock('@autronas/frontend/store');
 
-describe('ToolbarView', () => {
-  let component: ToolbarView;
-  let fixture: ComponentFixture<ToolbarView>;
+describe('UserConfigView', () => {
+  let component: UserConfigView;
+  let fixture: ComponentFixture<UserConfigView>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ToolbarView],
+      imports: [UserConfigView],
       providers: [StoreService],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(ToolbarView);
+    fixture = TestBed.createComponent(UserConfigView);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

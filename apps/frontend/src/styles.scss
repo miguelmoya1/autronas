@@ -158,3 +158,16 @@ textarea {
   max-height: 400px;
   min-height: 100px;
 }
+
+a {
+  color: var(--mat-full-pseudo-checkbox-selected-icon-color);
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &:active {
+    color: var(--mat-full-pseudo-checkbox-checked-icon-color);
+  }
+}

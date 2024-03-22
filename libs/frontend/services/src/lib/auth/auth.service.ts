@@ -11,6 +11,10 @@ export class AuthService {
   private readonly _store = inject(StoreService);
 
   constructor() {
+    this._store.set(STORE_KEYS.TOKEN, null);
+    this._store.set(STORE_KEYS.IS_LOGGED, false);
+    this._store.set(STORE_KEYS.IS_LOGGED_LOADING, true);
+
     this.init();
   }
 

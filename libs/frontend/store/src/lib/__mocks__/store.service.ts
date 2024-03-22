@@ -11,6 +11,9 @@ export class StoreService {
       case STORE_KEYS.SOCKET_CONNECTED:
         return signal(false);
 
+      case STORE_KEYS.CURRENT_LANGUAGE:
+        return signal('en');
+
       case STORE_KEYS.TRANSLATE:
         return signal(defaultDataLoading());
       case STORE_KEYS.AVAILABLE_LANGUAGES:
@@ -41,6 +44,8 @@ export class StoreService {
         return signal(null);
       case STORE_KEYS.CLIENT:
         return signal(defaultDataLoading());
+      case STORE_KEYS.CURRENT_THEME:
+        return signal('light-theme');
     }
   };
 }

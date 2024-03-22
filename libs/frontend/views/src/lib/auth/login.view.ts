@@ -10,7 +10,7 @@ import { STORE_KEYS, StoreService } from '@autronas/frontend/store';
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <button mat-button (click)="login()">
+    <button mat-stroked-button (click)="login()">
       {{ 'LOGIN_WITH_GOOGLE' | translate }}
     </button>
   `,

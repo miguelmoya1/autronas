@@ -11,6 +11,7 @@ export * from './lib/common/mat-paginator-intl.service';
 export * from './lib/common/overlay.service';
 export * from './lib/common/side-sheets.service';
 export * from './lib/common/validators.service';
+export * from './lib/theme/theme.service';
 export * from './lib/translates/translate.service';
 export * from './lib/users/user-api.service';
 export * from './lib/users/user-socket.service';

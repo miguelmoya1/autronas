@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActivatedRoute } from '@angular/router';
+import { StoreService } from '@autronas/frontend/store';
 import { SidenavButtonComponent } from './sidenav-button.component';
+
+jest.mock('@autronas/frontend/store');
 
 describe('SidenavButtonComponent', () => {
   let component: SidenavButtonComponent;
@@ -9,6 +12,7 @@ describe('SidenavButtonComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       providers: [
+        StoreService,
         {
           provide: ActivatedRoute,
           useValue: {},

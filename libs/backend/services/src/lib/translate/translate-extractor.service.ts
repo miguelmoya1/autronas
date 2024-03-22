@@ -25,7 +25,7 @@ export class TranslateExtractorService {
   private async extract(folder: string) {
     const dir = await readdir(folder);
     const folders = dir.filter((file) => !file.includes('.'));
-    const files = dir.filter((file) => file.includes('.ts'));
+    const files = dir.filter((file) => file.includes('.ts') || file.includes('.html'));
 
     const strings: string[] = [];
 

@@ -45,7 +45,9 @@ import { STORE_KEYS, StoreService } from '@autronas/frontend/store';
 
           <div>
             <mat-icon>email</mat-icon>
-            {{ client.email }}
+            <a [href]="'mailto:' + client.email" target="_blank">
+              {{ client.email }}
+            </a>
           </div>
 
           <div>
@@ -55,7 +57,13 @@ import { STORE_KEYS, StoreService } from '@autronas/frontend/store';
 
           <div>
             <mat-icon>phone</mat-icon>
-            {{ client.phoneNumber || '-' }}
+            @if (client.phoneNumber) {
+              <a [href]="'tel:' + client.phoneNumber">
+                {{ client.phoneNumber }}
+              </a>
+            } @else {
+              '-'
+            }
           </div>
 
           <div>

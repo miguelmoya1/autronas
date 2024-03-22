@@ -74,6 +74,15 @@ export class TranslateEntity {
   declare CREATE_CLIENT: string;
 
   @ApiProperty()
+  declare DARK: string;
+
+  @ApiProperty()
+  declare DASHBOARD: string;
+
+  @ApiProperty()
+  declare DNI_NIF_NIE: string;
+
+  @ApiProperty()
   declare EDIT: string;
 
   @ApiProperty()
@@ -92,6 +101,9 @@ export class TranslateEntity {
   declare EMAIL_REQUIRED: string;
 
   @ApiProperty()
+  declare ENGLISH: string;
+
+  @ApiProperty()
   declare ERROR_CREATING_CLIENT: string;
 
   @ApiProperty()
@@ -102,6 +114,9 @@ export class TranslateEntity {
 
   @ApiProperty()
   declare FAMILY_NAME_REQUIRED: string;
+
+  @ApiProperty()
+  declare GENERAL_DATA: string;
 
   @ApiProperty()
   declare GIVEN_NAME_INVALID_STRING: string;
@@ -152,6 +167,12 @@ export class TranslateEntity {
   declare ITEMS_PER_PAGE: string;
 
   @ApiProperty()
+  declare LANGUAGES: string;
+
+  @ApiProperty()
+  declare LIGHT: string;
+
+  @ApiProperty()
   declare LOGIN_TO_PLAY: string;
 
   @ApiProperty()
@@ -185,10 +206,16 @@ export class TranslateEntity {
   declare NO: string;
 
   @ApiProperty()
+  declare NOTES: string;
+
+  @ApiProperty()
   declare NO_DATA: string;
 
   @ApiProperty()
   declare PERSONAL_ID: string;
+
+  @ApiProperty()
+  declare PHONE: string;
 
   @ApiProperty()
   declare PHONE_NUMBER: string;
@@ -203,7 +230,16 @@ export class TranslateEntity {
   declare SAVE: string;
 
   @ApiProperty()
+  declare SETTINGS: string;
+
+  @ApiProperty()
+  declare SPANISH: string;
+
+  @ApiProperty()
   declare SURNAME: string;
+
+  @ApiProperty()
+  declare THEME: string;
 
   @ApiProperty()
   declare THIS_FIELD_IS_REQUIRED: string;
